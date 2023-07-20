@@ -15,6 +15,46 @@ export const api = {
     }
     return undefined;
   },
+
+  getCourseById: async (id) => {
+    try {
+      const res = await instance.get(`/course/${id}`);
+      return res.data;
+    } catch (error) {
+      console.error(error);
+    }
+    return undefined;
+  },
+
+  getAllLessons: async () => {
+    try {
+      const res = await instance.get("/lesson");
+      return res.data;
+    } catch (error) {
+      console.error(error);
+    }
+    return undefined;
+  },
+
+  getLessons: async (id) => {
+    try {
+      const res = await instance.get(`/course/${id}/lessons`);
+      return res.data;
+    } catch (error) {
+      console.error(error);
+    }
+    return undefined;
+  },
+
+  getLessonById: async (id) => {
+    try {
+      const res = await instance.get(`/lesson/${id}`);
+      return res.data;
+    } catch (error) {
+      console.error(error);
+    }
+    return undefined;
+  },
 };
 
 export default {

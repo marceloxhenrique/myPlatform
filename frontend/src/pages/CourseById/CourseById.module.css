@@ -1,0 +1,14 @@
+.courseByIdCard {
+  min-height: 100dvh;
+  width: 100dvw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--fontFamily);
+  background-color: var(--primaryGreen);
+}
+
+.courseByIdCard > h1 {
+  color: var(--secondaryWhite);
+  margin-top: 1em;
+}

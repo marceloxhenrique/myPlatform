@@ -1,7 +1,10 @@
 // import Home from "./pages/home/Home";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useContext } from "react";
 import RoutesList from "./routes/RoutesList";
 import "./App.css";
+import { AuthContext } from "./contexts/AuthContext";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   const theme = createTheme({
@@ -19,9 +22,10 @@ function App() {
       fontFamily: "Jost",
     },
   });
-
+  const { currentUser } = useContext(AuthContext);
   return (
     <ThemeProvider theme={theme}>
+      {currentUser.id && <Navbar />}
       <RoutesList />
     </ThemeProvider>
   );

@@ -27,6 +27,21 @@ const read = (req, res) => {
       res.sendStatus(500);
     });
 };
+const readLessons = (req, res) => {
+  models.lesson
+    .findLessons(req.params.id)
+    .then(([rows]) => {
+      if (rows.length === 0) {
+        res.sendStatus(404);
+      } else {
+        res.send(rows);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
 
 const edit = (req, res) => {
   const lesson = req.body;
@@ -88,4 +103,5 @@ module.exports = {
   edit,
   add,
   destroy,
+  readLessons,
 };

@@ -17,6 +17,13 @@ class LessonManager extends AbstractManager {
       [lesson.title, lesson.id]
     );
   }
+
+  findLessons(id) {
+    return this.database.query(
+      `SELECT * FROM  ${this.table} WHERE course_id = ?`,
+      [id]
+    );
+  }
 }
 
 module.exports = LessonManager;

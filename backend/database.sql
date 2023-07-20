@@ -6,7 +6,7 @@ USE myPlatform;
 
 CREATE TABLE user (
 id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-admin BOOL NOT NULL  DEFAULT 0,
+admin BOOL DEFAULT 0,
 firstname VARCHAR(50) NOT NULL,
 lastname VARCHAR(50) NOT NULL,
 email VARCHAR(50) NOT NULL UNIQUE,
@@ -28,7 +28,7 @@ id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 data DATE NOT NULL,
 user_id INT NOT NULL,
 course_id INT NOT NULL,
-complete BOOL default 0 NOT NULL,
+complete BOOLEAN default 0 NOT NULL,
 FOREIGN KEY (user_id) REFERENCES user(id),
 FOREIGN KEY (course_id) REFERENCES course(id)
 );
@@ -37,8 +37,8 @@ CREATE TABLE lesson (
 id INT PRIMARY KEY NOT NULL  AUTO_INCREMENT,
 lesson_name VARCHAR(50) NOT NULL,
 duration INT NOT NULL,
-complete BOOL default 0 NOT NULL,
-url VARCHAR(80) NOT NULL,
+complete BOOLEAN default 0,
+url text NOT NULL,
 text TEXT,
 course_id INT NOT NULL,
 FOREIGN KEY (course_id) REFERENCES course(id)
@@ -59,7 +59,13 @@ VALUES
 
 INSERT INTO lesson (lesson_name, duration, complete, url, text, course_id)
 VALUES
-('Variables', 30, 0, 'url', 'Text about this lesson', 1),
-('Understandig React Js', 45, 0, 'url', 'Text about React Js lesson', 2);
+('HTML Introduction', 40, 0, '
+width="560" height="315" src="https://www.youtube.com/embed/qz0aGYrrlhU" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write;encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen frameBorder="0"
+', 'HTML Tutorial for Beginners - Learn HTML for a career in web development. This HTML tutorial teaches you everything you need to get started.', 1),
+('CSS Introduction', 40, 0, 'url', 'Text about CSS Lesson', 2),
+('Variables', 30, 0, 'url', 'Text about this lesson', 3),
+('How JavaScript Works', 40, 0, 'url', 'Text about JavaScript', 3),
+('Understandig React Js', 45, 0, 'url', 'Text about React Js lesson', 4),
+('Components in React Js', 45, 0, 'url', 'Components are independent and reusable bits of code. They serve the same purpose as JavaScript functions, but work in isolation and return HTML. Components come in two types, Class components and Function components, in this tutorial we will concentrate on Function components.', 4);
 
 SET foreign_key_checks = 1;

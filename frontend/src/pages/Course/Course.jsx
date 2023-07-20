@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Course.module.css";
 import { api } from "../../services/api";
-import CardCourse from "../../components/cards/CourseCard";
+import CourseCard from "../../components/cards/course/CourseCard";
 
 export default function Course() {
   const [coursesAvailable, setCoursesAvailable] = useState();
@@ -22,7 +22,7 @@ export default function Course() {
   return (
     <main className={styles.containerCourse}>
       {/* {console.log(coursesAvailable)} */}
-      {coursesAvailable && <CardCourse coursesAvailable={coursesAvailable} />}
+      {coursesAvailable && <CourseCard coursesAvailable={coursesAvailable} />}
     </main>
   );
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./CourseCard.module.css";
 
 export default function cardCourse({ coursesAvailable }) {
@@ -17,9 +18,11 @@ export default function cardCourse({ coursesAvailable }) {
             <section className={styles.rightSide}>
               <h2>{course.title}</h2>
               <p>{course.description}</p>
-              <div className={styles.buttonAllLessons}>
-                <button type="button">See all lessons</button>
-              </div>
+              <Link to={`/course/${course.id}`}>
+                <div className={styles.buttonAllLessons}>
+                  <button type="button">See all lessons</button>
+                </div>
+              </Link>
             </section>
           </div>
         ))}
