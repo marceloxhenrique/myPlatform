@@ -1,0 +1,51 @@
+.cardCountainer {
+  display: flex;
+  flex-direction: row;
+  width: 80dvw;
+  margin: 2em 0em;
+  border-radius: 0.5em;
+  overflow: hidden;
+  font-family: var(--fontFamily);
+  /* background-color: var(--secondaryWhite); */
+  background-color: rgba(0, 0, 0, 0.523);
+}
+
+.leftSide {
+  display: flex;
+  justify-content: center;
+  width: 7em;
+  padding: 0.5em;
+}
+
+.initials {
+  font-size: 2em;
+  font-weight: bolder;
+
+}
+
+.rightSide {
+  padding: 1em 1em;
+  width: 100%;
+  color: aliceblue;
+}
+
+.buttonAllLessons {
+  text-align: right;
+  /* background-color: red; */
+  
+}
+
+.buttonAllLessons > button {
+  border: none;
+  border-radius: 0.4em;
+  padding: 0.5em;
+  margin-top: 1.5em;
+  background-image: (--gradient);
+  font-size: 1em;
+  font-weight:600;
+  cursor: pointer;
+}
+
+/* .buttonAllLessons>button:hover {
+  background-color: ;
+} */

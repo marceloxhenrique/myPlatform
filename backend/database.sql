@@ -17,8 +17,10 @@ aboutSection TEXT NULL
 
 CREATE TABLE course (
 id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-name VARCHAR(50) NOT NULL,
-description TEXT
+title VARCHAR(50) NOT NULL,
+description TEXT,
+color VARCHAR(50) NOT NULL,
+initials VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE user_have_course (
@@ -47,10 +49,12 @@ INSERT INTO user (admin, firstname, lastname, email, hashedPassword, profilePict
 VALUES
 (0, 'Marcelo', 'da Silva', 'marcelo@example.com', '$2b$10$4UlN2HIZ2hVX89fyeV/6Zu/4pOYBYExvz9F2RNxszZVWnrKkye.hG', 'url', 'Text about me');
 
-INSERT INTO course (name, description)
+INSERT INTO course (title, description, color, initials)
 VALUES 
-('JavaScript', 'JavaScript for beginners'),
-('React Js', 'React js for beginners');
+('HTML', 'HTML for begginers', '#DC4A23', 'HTML'),
+('CSS', 'CSS for begginers', '#136DB0', 'CSS' ),
+('JavaScript', 'JavaScript for beginners', '#EFD81A', 'JS'),
+('React Js', 'React js for beginners', '#47CEF6', 'R');
 
 
 INSERT INTO lesson (lesson_name, duration, complete, url, text, course_id)

@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { PropTypes } from "prop-types";
 import Home from "../pages/home/Home";
 import Profile from "../pages/profile/Profile";
+import Course from "../pages/Course/Course";
 import { AuthContext } from "../contexts/AuthContext";
 
 export default function RoutesList() {
@@ -27,25 +28,6 @@ export default function RoutesList() {
   return useRoutes([
     { path: "/", element: <Home /> },
     { path: "/profile", element: protectedRouteWrapper(<Profile />) },
+    { path: "/course", element: protectedRouteWrapper(<Course />) },
   ]);
 }
-
-// import { useNavigate, useRoutes } from "react-router-dom";
-// import { useContext } from "react";
-// // import { PropTypes } from "prop-types";
-// import Home from "../pages/home/Home";
-// import Profile from "../pages/profile/Profile";
-// import { AuthContext } from "../contexts/AuthContext";
-
-// export default function RoutesList() {
-//   const { currentUser } = useContext(AuthContext);
-//   const navigate = useNavigate();
-
-//   if (!currentUser) {
-//     navigate("/");
-//   }
-//   return useRoutes([
-//     { path: "/", element: <Home /> },
-//     { path: "/profile", element: currentUser ? <Profile /> : navigate("/") },
-//   ]);
-// }

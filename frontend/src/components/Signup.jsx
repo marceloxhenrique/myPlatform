@@ -16,25 +16,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
 import axios from "axios";
 
-// function Copyright(props) {
-//   return (
-//     <Typography
-//       variant="body2"
-//       color="text.secondary"
-//       align="center"
-//       {...props}
-//     >
-//       {"Copyright © "}
-//       <Link color="inherit" href="https://mui.com/">
-//         Your Website
-//       </Link>{" "}
-//       {new Date().getFullYear()}.
-//     </Typography>
-//   );
-// }
-
-// TODO remove, this demo shouldn't need to reset the theme.
-
 // const defaultTheme = ThemeProvider;
 
 export default function SignUp() {
@@ -83,7 +64,6 @@ export default function SignUp() {
   };
 
   return (
-    // <ThemeProvider theme={defaultTheme}>
     <Container component="main" maxWidth="xl">
       <CssBaseline />
       <Box
@@ -157,12 +137,6 @@ export default function SignUp() {
                 value={usersData.password}
               />
             </Grid>
-            {/* <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
-              />
-            </Grid> */}
           </Grid>
           <Button
             onClick={handleSubmit}
@@ -181,8 +155,6 @@ export default function SignUp() {
           </Grid>
         </Box>
       </Box>
-      {/* <Copyright sx={{ mt: 5 }} /> */}
     </Container>
-    // </ThemeProvider>
   );
 }
