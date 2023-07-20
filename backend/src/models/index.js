@@ -31,12 +31,18 @@ const models = {};
 
 const ItemManager = require("./ItemManager");
 const UserManager = require("./UserManager");
+const CourseManager = require("./CourseManager");
+const LessonManager = require("./LessonManager");
 
 models.item = new ItemManager();
 models.user = new UserManager();
+models.course = new CourseManager();
+models.lesson = new LessonManager();
 
 models.item.setDatabase(pool);
 models.user.setDatabase(pool);
+models.course.setDatabase(pool);
+models.lesson.setDatabase(pool);
 
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model

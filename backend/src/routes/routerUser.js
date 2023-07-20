@@ -12,7 +12,7 @@ routerUser.post(
   authControllers.getUserByEmailMiddleware,
   auth.verifyPassword
 );
-routerUser.get("/logout", auth.veryfyToken, auth.logout);
+routerUser.get("/logout", auth.logout);
 
 routerUser.get("/users", userControllers.browse);
 routerUser.get("/users/:id", userControllers.read);

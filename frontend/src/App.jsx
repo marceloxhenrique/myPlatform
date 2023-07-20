@@ -1,13 +1,29 @@
-import Home from "./pages/Home";
-
+// import Home from "./pages/home/Home";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import RoutesList from "./routes/RoutesList";
 import "./App.css";
 
 function App() {
+  const theme = createTheme({
+    palette: {
+      type: "light",
+      primary: {
+        main: "#2B4A3B",
+      },
+      secondary: {
+        main: "#069668",
+      },
+    },
+    spacing: 10,
+    typography: {
+      fontFamily: "Jost",
+    },
+  });
+
   return (
-    <div className="App">
-      <Home />
-      <p>coucou</p>
-    </div>
+    <ThemeProvider theme={theme}>
+      <RoutesList />
+    </ThemeProvider>
   );
 }
 

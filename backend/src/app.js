@@ -19,6 +19,7 @@ app.use(
   cors({
     origin: process.env.FRONTEND_URL ?? "http://localhost:3000",
     optionsSuccessStatus: 200,
+    credentials: true,
   })
 );
 
@@ -26,9 +27,13 @@ app.use(
 
 const router = require("./routes/router");
 const routerUser = require("./routes/routerUser");
+const routerCourse = require("./routes/routerCourse");
+const routerLesson = require("./routes/routerLesson");
 
 app.use(router);
 app.use(routerUser);
+app.use(routerCourse);
+app.use(routerLesson);
 
 // serve the `backend/public` folder for public resources
 
