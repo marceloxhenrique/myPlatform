@@ -9,7 +9,6 @@ import CourseById from "../pages/CourseById/CourseById";
 import { AuthContext } from "../contexts/AuthContext";
 import Createcourse from "../pages/createCourse/Createcourse";
 import Update from "../pages/updateCourse/Update";
-// import Navbar from "../components/Navbar/Navbar";
 
 export default function RoutesList() {
   const { currentUser } = useContext(AuthContext);

@@ -6,7 +6,6 @@
   border-radius: 0.5em;
   overflow: hidden;
   font-family: var(--fontFamily);
-  /* background-color: var(--secondaryWhite); */
   background-color: rgba(0, 0, 0, 0.523);
 }
 
@@ -31,8 +30,6 @@
 
 .buttonAllLessons {
   text-align: right;
-  /* background-color: red; */
-  
 }
 
 .buttonAllLessons > button {
@@ -45,7 +42,3 @@
   font-weight:600;
   cursor: pointer;
 }
-
-/* .buttonAllLessons>button:hover {
-  background-color: ;
-} */

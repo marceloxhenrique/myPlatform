@@ -24,7 +24,6 @@
 }
 
 .courseListe > span {
-  /* background-color: red; */
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -58,8 +57,6 @@
 .courseListe > span > button:hover {
   background-color: var(--primaryGreen);
   color: var(--secondaryWhite);
-
-
 }
 
 .updateBox {
@@ -68,8 +65,6 @@
   width: 70dvw;
   padding: 0.5em 1em;
   border-radius: 0.3em;
-
-
   background-color: rgba(0, 0, 0, 0.554);
 }
 .updateBox >label {
@@ -80,9 +75,7 @@
   height: 2em;
   margin: 1em 0em;
   font-size: 1.3em;
-  padding-left: 1em;
-
-  
+  padding-left: 1em;  
 }
 .submiButton{
   height: 2em;

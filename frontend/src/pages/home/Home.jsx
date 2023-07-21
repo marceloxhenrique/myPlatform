@@ -1,12 +1,9 @@
-// import Box from "@mui/material/Box";
-// import Button from "@mui/material/Button";
 import { useState, React } from "react";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import SignIn from "../../components/Signin";
 import SignUp from "../../components/Signup";
 import styles from "./Home.module.css";
-// import { Box } from "@mui/material";
 
 export default function Home() {
   const [showFirstPage, setShowFirstPage] = useState(true);
