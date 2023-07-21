@@ -1,0 +1,48 @@
+.containerCourse {
+  width: 100dvw;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primaryGreen);
+  font-family: var(--fontFamily);
+}
+
+.adminContainer {
+  display: flex;
+  flex-direction: column;
+  width: 80dvw;
+
+  /* background-color: red; */
+}
+
+.create {
+  margin: 1em 0em;
+  padding: 1em 0em;
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: bold;
+  color: var(--secondaryWhite);
+  background-color: rgba(0, 0, 0, 0.554);
+  border-radius: 0.4em;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.create:hover {
+  background-color: var(--secondaryWhite);
+  color: var(--primaryGreen);
+}
+
+.update {
+  margin: 1em 0em;
+  padding: 1em 0em;
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: bold;
+  color: var(--secondaryWhite);
+  background-color: rgba(0, 0, 0, 0.554);
+  border-radius: 0.4em;
+  cursor: pointer;
+}

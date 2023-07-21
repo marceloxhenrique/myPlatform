@@ -1,13 +1,33 @@
-import Home from "./pages/Home";
-
+// import Home from "./pages/home/Home";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useContext } from "react";
+import RoutesList from "./routes/RoutesList";
 import "./App.css";
+import { AuthContext } from "./contexts/AuthContext";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
+  const theme = createTheme({
+    palette: {
+      type: "light",
+      primary: {
+        main: "#2B4A3B",
+      },
+      secondary: {
+        main: "#069668",
+      },
+    },
+    spacing: 10,
+    typography: {
+      fontFamily: "Jost",
+    },
+  });
+  const { currentUser } = useContext(AuthContext);
   return (
-    <div className="App">
-      <Home />
-      <p>coucou</p>
-    </div>
+    <ThemeProvider theme={theme}>
+      {currentUser.id && <Navbar />}
+      <RoutesList />
+    </ThemeProvider>
   );
 }
 

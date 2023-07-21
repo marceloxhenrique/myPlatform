@@ -1,0 +1,108 @@
+.containerUpdate {
+  width: 100dvw;
+  min-height: 92dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--primaryGreen);
+  font-family: var(--fontFamily);
+  color: aliceblue;
+}
+
+.courseListe {
+  width: 70dvw;
+  height: 10em;
+  display: flex;
+  font-size: 1.5em;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.554);
+  overflow-y: scroll;
+  border-radius: 0em 0em 0.5em 0.5em;
+  border-bottom: 0.2em solid black;
+  margin-bottom: 1em;
+
+}
+
+.courseListe > span {
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  
+
+}
+.title {
+  color: var(--secondaryWhite);
+  font-size: 1.2em;
+  margin-top: 1em;
+  padding: 0.5em;
+  background-color: rgba(0, 0, 0, 0.554);
+  text-align: center;
+  border-radius: 0.5em 0.5em 0em 0em;
+}
+
+.courseListe > span > button {
+  margin: 1em;
+  padding: 0.5em;
+  background-color: var(--secondaryWhite);
+  border-radius: 0.3em;
+  cursor: pointer;
+  color: black;
+  border: none;
+  font-size: 0.8em;
+  font-weight: bold;
+
+
+}
+
+.courseListe > span > button:hover {
+  background-color: var(--primaryGreen);
+  color: var(--secondaryWhite);
+
+
+}
+
+.updateBox {
+  display: flex;
+  flex-direction: column;
+  width: 70dvw;
+  padding: 0.5em 1em;
+  border-radius: 0.3em;
+
+
+  background-color: rgba(0, 0, 0, 0.554);
+}
+.updateBox >label {
+  font-size: 1.5em;
+}
+
+.updateBox > input {
+  height: 2em;
+  margin: 1em 0em;
+  font-size: 1.3em;
+  padding-left: 1em;
+
+  
+}
+.submiButton{
+  height: 2em;
+  margin: 1em 0em;
+  font-size: 1.3em;
+  padding-left: 1em;
+  border: none;
+  color: var(--secondaryWhite);
+  background-color: var(--primaryGreen);
+  border-radius: 0.3em;
+  cursor: pointer;
+}
+.deleteButton {
+  height: 2em;
+  margin: 1em 0em;
+  font-size: 1.3em;
+  padding-left: 1em;
+  border: none;
+  color: var(--secondaryWhite);
+  background-color: red;
+  border-radius: 0.3em;
+  cursor: pointer;
+}
