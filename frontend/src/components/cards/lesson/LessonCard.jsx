@@ -12,8 +12,6 @@ export default function LessonCard({ lessons }) {
             <section className={styles.leftSide}>Video</section>
             <section className={styles.rightSide}>
               <h2>{lesson.lesson_name}</h2>
-              {/* <p>{lesson.text}</p> */}
-              {/* <p>{course.color}</p> */}
               <Link to={`lesson/${lesson.id}`}>
                 <div className={styles.buttonAllLessons}>
                   <button type="button">Watch</button>

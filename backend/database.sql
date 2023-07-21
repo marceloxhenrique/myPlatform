@@ -60,8 +60,7 @@ VALUES
 
 INSERT INTO lesson (lesson_name, duration, complete, url, text, course_id)
 VALUES
-('HTML Introduction', 40, 0, '
-width="560" height="315" src="https://www.youtube.com/embed/qz0aGYrrlhU" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write;encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen frameBorder="0"
+('HTML Introduction', 40, 0, 'https://www.youtube.com/embed/Y1BlT4_c_SU" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 ', 'HTML Tutorial for Beginners - Learn HTML for a career in web development. This HTML tutorial teaches you everything you need to get started.', 1),
 ('CSS Introduction', 40, 0, 'url', 'Text about CSS Lesson', 2),
 ('Variables', 30, 0, 'url', 'Text about this lesson', 3),

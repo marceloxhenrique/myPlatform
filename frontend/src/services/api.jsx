@@ -56,9 +56,10 @@ export const api = {
     return undefined;
   },
 
-  registerCourse: async (id, coursedata) => {
+  registerCourse: async (coursedata) => {
+    // console.log(id)
     try {
-      const res = await instance.post(`/course/${id}`, coursedata);
+      const res = await instance.post(`/course`, coursedata);
       return res.data;
     } catch (error) {
       console.error(error);
