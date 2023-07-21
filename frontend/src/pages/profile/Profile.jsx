@@ -3,7 +3,7 @@ import styles from "./Profile.module.css";
 import { AuthContext } from "../../contexts/AuthContext";
 
 export default function Profile() {
-  const { currentUser, logout } = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
   return (
     <div className={styles.profileContainer}>
       <section className={styles.profilePicture}>
@@ -17,9 +17,6 @@ export default function Profile() {
         <span>{`Last name: ${currentUser.lastname}`}</span>
         <span>{`Email: ${currentUser.email}`}</span>
       </section>
-      <button type="button" onClick={logout}>
-        Logout
-      </button>
     </div>
   );
 }

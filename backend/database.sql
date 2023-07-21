@@ -47,7 +47,8 @@ FOREIGN KEY (course_id) REFERENCES course(id)
 
 INSERT INTO user (admin, firstname, lastname, email, hashedPassword, profilePicture, aboutSection)
 VALUES
-(0, 'Marcelo', 'da Silva', 'marcelo@example.com', '$2b$10$4UlN2HIZ2hVX89fyeV/6Zu/4pOYBYExvz9F2RNxszZVWnrKkye.hG', 'url', 'Text about me');
+(0, 'Marcelo', 'da Silva', 'marcelo@example.com', '$2b$10$4UlN2HIZ2hVX89fyeV/6Zu/4pOYBYExvz9F2RNxszZVWnrKkye.hG', 'url', 'Text about me'),
+(1, 'Admin', 'admin', 'admin@mail.com', '$2b$10$XS9w9qWHtvFLazC8k3ensextqzsr69u7FnaMQWSBPO0g8GiX52ioS', 'url', 'Text about me');
 
 INSERT INTO course (title, description, color, initials)
 VALUES 

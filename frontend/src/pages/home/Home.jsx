@@ -1,6 +1,8 @@
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
+// import Box from "@mui/material/Box";
+// import Button from "@mui/material/Button";
 import { useState, React } from "react";
+import Grid from "@mui/material/Grid";
+import Link from "@mui/material/Link";
 import SignIn from "../../components/Signin";
 import SignUp from "../../components/Signup";
 import styles from "./Home.module.css";
@@ -26,7 +28,7 @@ export default function Home() {
   };
   const handleSignUpCLick = () => {
     setShowFirstPage(false);
-    setShowSignIn(true);
+    setShowSignUp(true);
   };
 
   return (
@@ -55,45 +57,27 @@ export default function Home() {
         {/* it will show the Sign In modal if the button Sign In is clicked */}
         {showSignIn && (
           <div>
-            <Box
-              sx={{
-                width: "100%",
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "left",
-              }}
-            >
-              <Button
-                onClick={goBackFromSignIn}
-                variant="contained"
-                sx={{ m: 3, backgroundColor: "green" }}
-              >
-                X
-              </Button>
-            </Box>
             <SignIn />
+            <Grid container justifyContent="flex-end">
+              <Grid item sx={{ m: 3, textAlign: "center", width: "100%" }}>
+                <Link to="/" variant="body2" onClick={goBackFromSignIn}>
+                  Doens't have an account? <br /> SignUp
+                </Link>
+              </Grid>
+            </Grid>
           </div>
         )}
         {/* it will show the Sign Up modal if the button Sign Up is clicked */}
         {showSignUp && (
           <div>
-            <Box
-              sx={{
-                width: "100%",
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "left",
-              }}
-            >
-              <Button
-                onClick={goBackFromSignUp}
-                variant="contained"
-                sx={{ m: 3, backgroundColor: "green" }}
-              >
-                X
-              </Button>
-            </Box>
             <SignUp />
+            <Grid container justifyContent="flex-end">
+              <Grid item sx={{ m: 3, textAlign: "center", width: "100%" }}>
+                <Link to="/" variant="body2" onClick={goBackFromSignUp}>
+                  Already have an account? Sign in
+                </Link>
+              </Grid>
+            </Grid>
           </div>
         )}
       </section>

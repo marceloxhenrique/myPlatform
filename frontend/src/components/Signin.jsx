@@ -59,7 +59,11 @@ export default function SignIn() {
             alignItems: "center",
           }}
         >
-          <Typography component="h1" variant="h5" sx={{ width: "100%" }}>
+          <Typography
+            component="h1"
+            variant="h5"
+            sx={{ width: "100%", textAlign: "center" }}
+          >
             Sign in
           </Typography>
           <Box

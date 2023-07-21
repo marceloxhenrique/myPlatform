@@ -1,5 +1,5 @@
 import { useNavigate, useRoutes } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { PropTypes } from "prop-types";
 import Home from "../pages/home/Home";
 import Profile from "../pages/profile/Profile";
@@ -7,6 +7,9 @@ import Course from "../pages/Course/Course";
 import Lessons from "../pages/Lessons/Lessons";
 import CourseById from "../pages/CourseById/CourseById";
 import { AuthContext } from "../contexts/AuthContext";
+import Createcourse from "../pages/createCourse/Createcourse";
+import Update from "../pages/updateCourse/Update";
+// import Navbar from "../components/Navbar/Navbar";
 
 export default function RoutesList() {
   const { currentUser } = useContext(AuthContext);
@@ -27,6 +30,18 @@ export default function RoutesList() {
     <ProtectedRoute key={Component}>{Component}</ProtectedRoute>,
   ];
 
+  function ProtectedRouteAdmin({ children }) {
+    useEffect(() => {
+      if (!currentUser.admin) {
+        navigate("/courses");
+      }
+    }, [currentUser]); // Call navigate() inside useEffect
+    return children;
+  }
+  const protectedRouteWrapperAdmin = (Component) => [
+    <ProtectedRouteAdmin key={Component}>{Component}</ProtectedRouteAdmin>,
+  ];
+
   return useRoutes([
     { path: "/", element: <Home /> },
     { path: "/profile", element: protectedRouteWrapper(<Profile />) },
@@ -35,6 +50,14 @@ export default function RoutesList() {
     {
       path: "/course/:id/lesson/:id",
       element: protectedRouteWrapper(<Lessons />),
+    },
+    {
+      path: "/createcourse",
+      element: protectedRouteWrapperAdmin(<Createcourse />),
+    },
+    {
+      path: "/updatecourse",
+      element: protectedRouteWrapperAdmin(<Update />),
     },
   ]);
 }

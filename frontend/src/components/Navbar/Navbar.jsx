@@ -1,15 +1,32 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export default function Navbar() {
+  const activeLink = ({ isActive }) => {
+    if (isActive)
+      return {
+        // webkitTextStroke: "2px #E8D162",
+        color: "#064E3B",
+      };
+    return {};
+  };
   const [hidden, setHidden] = useState(false);
   const [closeMenu, setCloseMenu] = useState(false);
+  const [adminMenu, setAdminMenu] = useState(false);
 
+  const { currentUser, logout } = useContext(AuthContext);
   // const handleHide = () => {
   //   setHidden(!hidden), setCloseMenu(!closeMenu);
   // };
-
+  useEffect(() => {
+    if (currentUser.admin) {
+      setAdminMenu(true);
+    } else {
+      setAdminMenu(false);
+    }
+  }, [currentUser]);
   return (
     <header>
       <p>My Platform</p>
@@ -48,18 +65,20 @@ export default function Navbar() {
           role="menu"
         >
           <li>
-            <Link
+            <NavLink
+              style={activeLink}
               onClick={() => {
                 setHidden(!hidden);
                 setCloseMenu(!closeMenu);
               }}
               to="/courses"
             >
-              Home
-            </Link>
+              Courses
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
+              style={activeLink}
               onClick={() => {
                 setHidden(!hidden);
                 setCloseMenu(!closeMenu);
@@ -67,38 +86,42 @@ export default function Navbar() {
               to="/profile"
             >
               Profile
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
+              style={activeLink}
               onClick={() => {
-                setHidden(!hidden);
-                setCloseMenu(!closeMenu);
+                logout();
               }}
               to="projects"
             >
               Log out
-            </Link>
+            </NavLink>
           </li>
+          {adminMenu && (
+            <li>
+              <NavLink
+                style={activeLink}
+                onClick={() => {
+                  setHidden(!hidden);
+                  setCloseMenu(!closeMenu);
+                }}
+                to="/createcourse"
+              >
+                Create new Course
+              </NavLink>
+            </li>
+          )}
           {/* <li>
-            <Link
-              onClick={() => {
-                setHidden(!hidden), setCloseMenu(!closeMenu);
-              }}
-              to="about"
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
+            <NavLink
               onClick={() => {
                 setHidden(!hidden), setCloseMenu(!closeMenu);
               }}
               to="contact"
             >
               Contact
-            </Link>
+            </NavLink>
           </li> */}
         </ul>
       </nav>

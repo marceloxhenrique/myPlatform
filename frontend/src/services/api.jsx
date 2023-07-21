@@ -55,6 +55,36 @@ export const api = {
     }
     return undefined;
   },
+
+  registerCourse: async (id, coursedata) => {
+    try {
+      const res = await instance.post(`/course/${id}`, coursedata);
+      return res.data;
+    } catch (error) {
+      console.error(error);
+    }
+    return undefined;
+  },
+
+  deleteCourse: async (id) => {
+    try {
+      const res = await instance.delete(`/course/${id}`);
+      return res.data;
+    } catch (error) {
+      console.error(error);
+    }
+    return undefined;
+  },
+
+  updateCourse: async (id, data) => {
+    try {
+      const res = await instance.put(`/course/${id}`, data);
+      return res.data;
+    } catch (error) {
+      console.error(error);
+    }
+    return undefined;
+  },
 };
 
 export default {
