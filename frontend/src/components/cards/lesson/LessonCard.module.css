@@ -6,7 +6,6 @@
   border-radius: 0.5em;
   overflow: hidden;
   font-family: var(--fontFamily);
-  /* background-color: var(--secondaryWhite); */
   background-color: rgba(0, 0, 0, 0.523);
 }
 
@@ -15,8 +14,6 @@
   justify-content: center;
   width: 100%;
   height: 10em;
-  /* padding: 0.5em; */
-  /* margin: 0em 2em; */
   background-color: rgb(81, 81, 81);
 }
 
@@ -51,6 +48,3 @@
   cursor: pointer;
 }
 
-/* .buttonAllLessons>button:hover {
-  background-color: ;
-} */

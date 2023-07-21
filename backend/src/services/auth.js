@@ -25,10 +25,6 @@ const verifyPassword = async (req, res) => {
   try {
     const match = await bcrypt.compare(password, hash);
     if (match) {
-      // const payload = {
-      //   sub: req.user.id,
-      //   name: req.user.firstname || "USER",
-      // };
       const token = jwt.sign({ sub: req.user.id }, JWT_SECRET, {
         expiresIn: JWT_TIMING,
       });

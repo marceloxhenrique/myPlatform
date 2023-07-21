@@ -18,10 +18,7 @@
   background-color: rgb(255, 255, 255);
   border-radius: 50%;
   overflow: hidden;
-
-  
 }
-
 
 .infoContainer {
   /* background-color: gray; */
@@ -38,7 +35,4 @@
 .infoContainer > span {
   margin: 0.5em 0em;
   font-size: 1.3em;
-  
-
-
 }
