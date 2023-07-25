@@ -10,7 +10,7 @@ import { AuthContext } from "../contexts/AuthContext";
 import Create from "../pages/Create/Create";
 import Update from "../pages/updateCourse/Update";
 import CreateLesson from "../pages/createLesson/CreateLesson";
-import CreateCourse from "../pages/createCourse/CreateCourse";
+import CreateCourse from "../pages/createCourse/Createcourse";
 
 export default function RoutesList() {
   const { currentUser } = useContext(AuthContext);
