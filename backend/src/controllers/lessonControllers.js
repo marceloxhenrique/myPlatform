@@ -1,5 +1,12 @@
+const multer = require("multer");
+const fs = require("fs");
+const { v4: uuidv4 } = require("uuid");
 const models = require("../models");
+// const models = require("../../public/assets/videos/");
 
+const upload = multer({
+  dest: "./public/picture/",
+});
 const browse = (req, res) => {
   models.lesson
     .findAll()
@@ -66,19 +73,41 @@ const edit = (req, res) => {
 };
 
 const add = (req, res) => {
-  const lesson = req.body;
-
-  // TODO validations (length, format...)
-
-  models.lesson
-    .insert(lesson)
-    .then(([result]) => {
-      res.location(`/lesson/${result.insertId}`).sendStatus(201);
-    })
-    .catch((err) => {
+  upload.single("video")(req, res, (err) => {
+    if (err) {
       console.error(err);
-      res.sendStatus(500);
+      return res.sendStatus(500);
+    }
+    const { filename } = req.file;
+    const { originalname } = req.file;
+    const filePath = `${uuidv4()}-${originalname}`;
+    const destinationPath = `./public/picture/${filename}`;
+    const path = `./public/picture/${filePath}`;
+    fs.rename(destinationPath, path, (error) => {
+      if (error) throw err;
+      res.send("File uploaded");
     });
+
+    const lesson = {
+      video: filePath,
+      lesson_name: req.body.lesson_name,
+      duration: req.body.duration,
+      description: req.body.description,
+      course_id: req.body.course_id,
+    };
+    // console.log(lesson);
+    models.lesson.insert(lesson);
+    // .then(() => {
+    //   res.sendStatus(201);
+    // })
+    // .catch((error) => {
+    //   console.error(error);
+    //   res.sendStatus(500);
+    // });
+    return undefined;
+  });
+  return undefined;
+  // TODO validations (length, format...)
 };
 
 const destroy = (req, res) => {

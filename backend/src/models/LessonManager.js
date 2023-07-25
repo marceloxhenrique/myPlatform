@@ -6,9 +6,17 @@ class LessonManager extends AbstractManager {
   }
 
   insert(lesson) {
-    return this.database.query(`insert into ${this.table} (title) values (?)`, [
-      lesson.title,
-    ]);
+    return this.database.query(
+      `INSERT INTO ${this.table} (lesson_name, duration, complete, video, description, course_id ) values (?, ?, ?, ?, ?, ?)`,
+      [
+        lesson.lesson_name,
+        lesson.duration,
+        lesson.complete,
+        lesson.video,
+        lesson.description,
+        lesson.course_id,
+      ]
+    );
   }
 
   update(lesson) {

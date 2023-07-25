@@ -23,9 +23,10 @@ function App() {
     },
   });
   const { currentUser } = useContext(AuthContext);
+  const home = window.location.pathname === "/";
   return (
     <ThemeProvider theme={theme}>
-      {currentUser.id && <Navbar />}
+      {!currentUser.id || home ? null : <Navbar />}
       <RoutesList />
     </ThemeProvider>
   );

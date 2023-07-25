@@ -1,8 +1,8 @@
 import React from "react";
 import { Formik } from "formik";
 import { toast } from "react-toastify";
-import styles from "./CardcreateCourse.module.css";
-import { api } from "../../../services/api";
+import styles from "./ComponentCreateCourse.module.css";
+import { api } from "../../services/api";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function CardcreateCourse() {

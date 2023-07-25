@@ -1,6 +1,7 @@
 .profileContainer {
   height: 100dvh;
-  width: 100dvw;
+  width: 100vw;
+  max-width: 100%;
   padding: 2em;
   background-color: var(--primaryGreen);
   font-family: var(--fontFamily);

@@ -1,6 +1,7 @@
 .lessonContainer {
   width: 100dvw;
-  min-height: 100dvh;
+  max-width: 100%;
+  min-height: 92dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,10 +10,22 @@
 }
 
 .playerContainer {
-  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 90dvw;
   height: 45dvh;
+  /* background-color: black; */
 }
+
+/* .playerContainer > ReactPlayer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90dvw;
+  height: 45dvh;
+  background-color: black;
+} */
 
 .boxLesson {
   display: flex;
@@ -33,3 +46,4 @@
   text-align: justify;
   color: var(--secondaryWhite);
 }
+
