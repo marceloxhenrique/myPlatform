@@ -1,20 +1,13 @@
-.containerCourse {
+.containerCreatelesson {
+  min-height: 92dvh;
   width: 100vw;
   max-width: 100%;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  text-align: center;
+  padding: 2em;
   background-color: var(--primaryGreen);
   font-family: var(--fontFamily);
-
+  color: var(--secondaryWhite);
 }
-
-.adminContainer {
-  display: flex;
-  flex-direction: column;
-  width: 80vw;
-}
-
-

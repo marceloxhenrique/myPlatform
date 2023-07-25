@@ -88,17 +88,6 @@ export default function Navbar() {
               Profile
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              style={activeLink}
-              onClick={() => {
-                logout();
-              }}
-              to="projects"
-            >
-              Log out
-            </NavLink>
-          </li>
           {adminMenu && (
             <li>
               <NavLink
@@ -107,22 +96,23 @@ export default function Navbar() {
                   setHidden(!hidden);
                   setCloseMenu(!closeMenu);
                 }}
-                to="/createcourse"
+                to="/create"
               >
-                Create new Course
+                Create
               </NavLink>
             </li>
           )}
-          {/* <li>
+          <li>
             <NavLink
+              style={activeLink}
               onClick={() => {
-                setHidden(!hidden), setCloseMenu(!closeMenu);
+                logout();
               }}
-              to="contact"
+              to="/"
             >
-              Contact
+              Log out
             </NavLink>
-          </li> */}
+          </li>
         </ul>
       </nav>
     </header>

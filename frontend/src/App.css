@@ -4,8 +4,13 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
+  /* box-shadow: 0 0 0 3px red; */
 
+}
+body {
+  /* width: 100%; */
+  background-color: rgb(255, 255, 255);
+}
 
 
 :root {

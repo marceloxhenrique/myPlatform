@@ -1,0 +1,52 @@
+.containerCreatecourse {
+  min-height: 92dvh;
+  width: 100vw;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2em;
+  background-color: var(--primaryGreen);
+  font-family: var(--fontFamily);
+  color: var(--secondaryWhite);
+}
+
+.adminContainer {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+}
+
+.containerCourse {
+  width: 100vw;
+  max-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primaryGreen);
+  font-family: var(--fontFamily);
+
+}
+
+.create,
+.update {
+  margin: 1em 0em;
+  padding: 1em 0em;
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: bold;
+  color: var(--secondaryWhite);
+  background-color: rgba(0, 0, 0, 0.554);
+  border-radius: 0.4em;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.create:hover,
+.update:hover {
+  background-color: var(--secondaryWhite);
+  color: var(--primaryGreen);
+}

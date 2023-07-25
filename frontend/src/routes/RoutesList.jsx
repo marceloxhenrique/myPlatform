@@ -7,8 +7,10 @@ import Course from "../pages/Course/Course";
 import Lessons from "../pages/Lessons/Lessons";
 import CourseById from "../pages/CourseById/CourseById";
 import { AuthContext } from "../contexts/AuthContext";
-import Createcourse from "../pages/createCourse/Createcourse";
+import Create from "../pages/Create/Create";
 import Update from "../pages/updateCourse/Update";
+import CreateLesson from "../pages/createLesson/CreateLesson";
+import CreateCourse from "../pages/createCourse/CreateCourse";
 
 export default function RoutesList() {
   const { currentUser } = useContext(AuthContext);
@@ -51,8 +53,16 @@ export default function RoutesList() {
       element: protectedRouteWrapper(<Lessons />),
     },
     {
+      path: "/create",
+      element: protectedRouteWrapperAdmin(<Create />),
+    },
+    {
       path: "/createcourse",
-      element: protectedRouteWrapperAdmin(<Createcourse />),
+      element: protectedRouteWrapperAdmin(<CreateCourse />),
+    },
+    {
+      path: "/createlesson",
+      element: protectedRouteWrapperAdmin(<CreateLesson />),
     },
     {
       path: "/updatecourse",

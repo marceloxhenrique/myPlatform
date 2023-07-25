@@ -1,12 +1,12 @@
 import React from "react";
-import CardcreateCourse from "../../components/cards/createCourse/CardcreateCourse";
-import styles from "./Createcourse.module.css";
+import ComponentCreateCourse from "../../components/ComponentsCreateCourse/ComponentCreateCourse";
+import styles from "./CreateCourse.module.css";
 
-export default function Createcourse() {
+export default function CreateCourse() {
   return (
     <div className={styles.containerCreatecourse}>
-      <h1>Create A new Course</h1>
-      <CardcreateCourse />
+      <h1>Create a New Course</h1>
+      <ComponentCreateCourse />
     </div>
   );
 }

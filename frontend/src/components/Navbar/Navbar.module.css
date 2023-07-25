@@ -166,3 +166,13 @@ header>p {
   }
 
 }
+
+li {
+  /* background-color: red; */
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+  color: rgb(0, 2, 1);
+}

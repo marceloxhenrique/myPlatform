@@ -31,8 +31,8 @@ LessonCard.propTypes = {
       lesson_name: PropTypes.string.isRequired,
       duration: PropTypes.number.isRequired,
       complete: PropTypes.number,
-      url: PropTypes.string.isRequired,
-      text: PropTypes.string,
+      // file_path: PropTypes.string.isRequired,
+      description: PropTypes.string,
       course_id: PropTypes.number.isRequired,
     })
   ).isRequired,

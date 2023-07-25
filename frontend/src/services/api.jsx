@@ -86,6 +86,16 @@ export const api = {
     }
     return undefined;
   },
+
+  registerLesson: async (formData) => {
+    try {
+      const res = await instance.post("/lesson", formData);
+      return res.data;
+    } catch (error) {
+      console.error(error);
+      return undefined;
+    }
+  },
 };
 
 export default {
