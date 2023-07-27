@@ -2,7 +2,7 @@
 
 const fs = require("node:fs");
 const path = require("node:path");
-
+const cookieParser = require("cookie-parser");
 // create express app
 
 const express = require("express");
@@ -12,7 +12,7 @@ const app = express();
 // use some application-level middlewares
 
 app.use(express.json());
-
+app.use(cookieParser());
 const cors = require("cors");
 
 app.use(
@@ -40,6 +40,7 @@ app.use(routerLesson);
 app.use(express.static(path.join(__dirname, "../public")));
 
 // serve REACT APP
+app.use(express.static(path.join(__dirname, "..", "..", "frontend", "dist")));
 
 const reactIndexFile = path.join(
   __dirname,
