@@ -31,7 +31,7 @@ const verifyPassword = async (req, res) => {
       delete req.user.hashedPassword;
       delete req.body.password;
       res
-        .cookie("accessToken", token, {
+        .cookie("accesstoken", token, {
           httpOnly: true,
           secure: process.env.NODE_ENV === "production",
         })
@@ -45,9 +45,10 @@ const verifyPassword = async (req, res) => {
   }
 };
 
-const veryfyToken = (req, res, next) => {
+const verifyToken = (req, res, next) => {
   try {
-    const token = req.cookies.accessToken;
+    // console.log(req.cookies)
+    const token = req.cookies.accesstoken;
     if (!token) return res.sendStatus(403);
 
     req.payloads = jwt.verify(token, JWT_SECRET);
@@ -58,8 +59,8 @@ const veryfyToken = (req, res, next) => {
 };
 
 const logout = (req, res) => {
-  res.clearCookie("accessToken");
+  res.clearCookie("accesstoken");
   res.status(200).json("User has been logged out");
 };
 
-module.exports = { hashPassword, verifyPassword, veryfyToken, logout };
+module.exports = { hashPassword, verifyPassword, verifyToken, logout };

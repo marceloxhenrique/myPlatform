@@ -107,3 +107,74 @@
     background-color: var(--secondaryWhite);
     /* background-color: red; */
 }
+
+.containerUpdate {
+  width: 100vw;
+  max-width: 100%;
+  min-height: 92dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--primaryGreen);
+  font-family: var(--fontFamily);
+  color: aliceblue;
+}
+
+.title {
+  color: var(--secondaryWhite);
+  font-size: 1.2em;
+  margin-top: 1em;
+  padding: 0.5em;
+  /* border-radius: 0.5em 0.5em 0em 0em; */
+}
+
+.courseListe {
+  width: 70%;
+  height: 10em;
+  display: flex;
+  font-size: 1.5em;
+  text-align: center;
+  background-color: var(--backgroundOpacity);
+  overflow-y: scroll;
+  border-radius: 0em 0em 0.5em 0.5em;
+  border-bottom: 0.2em solid black;
+  margin-bottom: 1em;
+
+}
+
+.courseListe>span {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+
+}
+
+.title {
+  color: var(--secondaryWhite);
+  font-size: 1.2em;
+  margin-top: 1em;
+  padding: 0.5em;
+  background-color: rgba(0, 0, 0, 0.554);
+  text-align: center;
+  border-radius: 0.5em 0.5em 0em 0em;
+}
+
+.courseListe>span>button {
+  margin: 1em;
+  padding: 0.5em;
+  background-color: var(--secondaryWhite);
+  border-radius: 0.3em;
+  cursor: pointer;
+  color: black;
+  border: none;
+  font-size: 0.8em;
+  font-weight: bold;
+
+
+}
+
+.courseListe>span>button:hover {
+  background-color: var(--primaryGreen);
+  color: var(--secondaryWhite);
+}
