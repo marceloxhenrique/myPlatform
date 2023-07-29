@@ -11,6 +11,8 @@ import Create from "../pages/Create/Create";
 import Update from "../pages/updateCourse/Update";
 import CreateLesson from "../pages/createLesson/CreateLesson";
 import CreateCourse from "../pages/createCourse/Createcourse";
+import Pagenotfound from "../pages/PageNotFound/Pagenotfound";
+import Navbar from "../components/Navbar/Navbar";
 
 export default function RoutesList() {
   const { currentUser } = useContext(AuthContext);
@@ -28,7 +30,9 @@ export default function RoutesList() {
   };
 
   const protectedRouteWrapper = (Component) => [
-    <ProtectedRoute key={Component}>{Component}</ProtectedRoute>,
+    <ProtectedRoute key={Component}>
+      <Navbar /> {Component}
+    </ProtectedRoute>,
   ];
 
   function ProtectedRouteAdmin({ children }) {
@@ -40,12 +44,20 @@ export default function RoutesList() {
     return children;
   }
   const protectedRouteWrapperAdmin = (Component) => [
-    <ProtectedRouteAdmin key={Component}>{Component}</ProtectedRouteAdmin>,
+    <ProtectedRouteAdmin key={Component}>
+      <Navbar /> {Component}
+    </ProtectedRouteAdmin>,
   ];
 
   return useRoutes([
-    { path: "/", element: <Home /> },
-    { path: "/profile", element: protectedRouteWrapper(<Profile />) },
+    {
+      path: "/",
+      element: <Home />,
+    },
+    {
+      path: "/profile",
+      element: protectedRouteWrapper(<Profile />),
+    },
     { path: "/courses", element: protectedRouteWrapper(<Course />) },
     { path: "/course/:id", element: protectedRouteWrapper(<CourseById />) },
     {
@@ -68,5 +80,6 @@ export default function RoutesList() {
       path: "/updatecourse",
       element: protectedRouteWrapperAdmin(<Update />),
     },
+    { path: "*", element: <Pagenotfound /> },
   ]);
 }
