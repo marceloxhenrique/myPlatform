@@ -28,7 +28,7 @@ export default function CardcreateCourse() {
     formData.append("video", inputRef.current.files[0]);
     try {
       api.registerLesson(formData);
-      toast.success("Your course was created", {
+      toast.success("Your lesson was created", {
         position: "bottom-right",
       });
     } catch (error) {
