@@ -12,7 +12,9 @@ import Update from "../pages/updateCourse/Update";
 import CreateLesson from "../pages/createLesson/CreateLesson";
 import CreateCourse from "../pages/createCourse/Createcourse";
 import Pagenotfound from "../pages/PageNotFound/Pagenotfound";
-import Navbar from "../components/Navbar/Navbar";
+import Navbar1 from "../components/Navbar/Navbar1";
+// import Navbar from "../components/Navbar/Navbar";
+// import styles from "../components/Navbar/Navbar1.module.css";
 
 export default function RoutesList() {
   const { currentUser } = useContext(AuthContext);
@@ -31,7 +33,11 @@ export default function RoutesList() {
 
   const protectedRouteWrapper = (Component) => [
     <ProtectedRoute key={Component}>
-      <Navbar /> {Component}
+      {/* <div className={styles.box}> */}
+      <Navbar1 />
+      {/* <Navbar /> */}
+      {/* </div> */}
+      {Component}
     </ProtectedRoute>,
   ];
 
@@ -45,7 +51,8 @@ export default function RoutesList() {
   }
   const protectedRouteWrapperAdmin = (Component) => [
     <ProtectedRouteAdmin key={Component}>
-      <Navbar /> {Component}
+      <Navbar1 />
+      {Component}
     </ProtectedRouteAdmin>,
   ];
 
