@@ -8,6 +8,8 @@
   justify-content: center;
   background-color: var(--primaryGreen);
   font-family: var(--fontFamily);
+  position: relative;
+  padding-top: 5em;
 
 }
 

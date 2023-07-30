@@ -17,7 +17,7 @@ body {
   --primaryGreen: #064E3B;
   --secondaryWhite: #ffffff;
   --gradient: linear-gradient(to right top, #064e3b, #0f5744, #17614d, #1f6a56, #26745f);
-  --backgroundOpacity: rgba(0, 0, 0, 0.554);
+  --backgroundOpacity: rgba(0, 0, 0, 0.595);
   --fontFamily: 'Open Sans', sans-serif;
   --fontfamily2: 'Playfair Display', serif;
 }
