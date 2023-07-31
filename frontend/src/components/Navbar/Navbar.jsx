@@ -1,120 +1,104 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { BiHomeAlt, BiUser, BiEditAlt, BiLogOut } from "react-icons/bi";
 import styles from "./Navbar.module.css";
 import { AuthContext } from "../../contexts/AuthContext";
+import photo from "../../assets/profilePhoto.jpg";
 
-export default function Navbar() {
-  const activeLink = ({ isActive }) => {
-    if (isActive)
-      return {
-        // webkitTextStroke: "2px #E8D162",
-        color: "#064E3B",
-      };
-    return {};
-  };
-  const [hidden, setHidden] = useState(false);
-  const [closeMenu, setCloseMenu] = useState(false);
-  const [adminMenu, setAdminMenu] = useState(false);
-
+export default function Navbar1() {
   const { currentUser, logout } = useContext(AuthContext);
-  // const handleHide = () => {
-  //   setHidden(!hidden), setCloseMenu(!closeMenu);
-  // };
+  const [adminview, setAdminview] = useState(false);
+  const [menuToggle, setMenuToggle] = useState(false);
   useEffect(() => {
-    if (currentUser.admin) {
-      setAdminMenu(true);
-    } else {
-      setAdminMenu(false);
-    }
+    if (currentUser.admin) setAdminview(true);
   }, [currentUser]);
+
+  const handleToogle = () => {
+    setMenuToggle(!menuToggle);
+  };
   return (
-    <header>
-      <p>My Platform</p>
-      <nav className={styles.rightSide}>
-        <div
-          className={styles.menuBurger}
-          role="button"
-          tabIndex={0}
-          onClick={() => {
-            setHidden(!hidden);
-            setCloseMenu(!closeMenu);
-          }}
-          onKeyDown={(event) => {
-            if (event.key === "Enter" || event.key === " ") {
-              setHidden(!hidden);
-              setCloseMenu(!closeMenu);
-            }
-          }}
-        >
-          <span
-            className={styles.icon1}
-            id={closeMenu ? styles.close1 : undefined}
-          />
-          <span
-            className={styles.icon2}
-            id={closeMenu ? styles.close2 : undefined}
-          />
-          <span
-            className={styles.icon3}
-            id={closeMenu ? styles.close3 : undefined}
-          />
-        </div>
-        <ul
-          className={styles.ulContainer}
-          id={hidden ? styles.hidden : undefined}
-          role="menu"
-        >
-          <li>
+    <header className={styles.navbar}>
+      <h2>MyPlatform</h2>
+      <button
+        onClick={handleToogle}
+        type="button"
+        className={styles.toggleMenu}
+      >
+        <span
+          className={styles.toggleMenuOpen}
+          id={menuToggle ? styles.top : undefined}
+        />
+        <span
+          className={styles.toggleMenuOpen}
+          id={menuToggle ? styles.mid : undefined}
+        />
+        <span
+          className={styles.toggleMenuOpen}
+          id={menuToggle ? styles.bot : undefined}
+        />
+      </button>
+      <div
+        className={
+          menuToggle ? styles.menuContainer : styles.menuContainerHiden
+        }
+      >
+        <section className={styles.menu}>
+          <div className={styles.userInfo}>
+            <img src={photo} alt="Profile" />
+            <p>
+              {currentUser.firstname} {currentUser.lastname}
+            </p>
+          </div>
+          <div className={styles.menuOptions}>
+            <ul>
+              <li>
+                <NavLink to="/courses">
+                  <BiHomeAlt className={styles.icon} />
+                  Dashboard
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/profile">
+                  <BiUser className={styles.icon} />
+                  Profile
+                </NavLink>
+              </li>
+              {adminview && (
+                <li>
+                  <NavLink to="/create">
+                    <BiEditAlt className={styles.icon} />
+                    Create
+                  </NavLink>
+                </li>
+              )}
+              {/* <li>
+                <NavLink
+                  onClick={() => {
+                    logout();
+                  }}
+                  to="/logout"
+                >
+                  <BiLogOut className={styles.icon} />
+                  Log out
+                </NavLink>
+              </li> */}
+            </ul>
             <NavLink
-              style={activeLink}
-              onClick={() => {
-                setHidden(!hidden);
-                setCloseMenu(!closeMenu);
-              }}
-              to="/courses"
-            >
-              Courses
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              style={activeLink}
-              onClick={() => {
-                setHidden(!hidden);
-                setCloseMenu(!closeMenu);
-              }}
-              to="/profile"
-            >
-              Profile
-            </NavLink>
-          </li>
-          {adminMenu && (
-            <li>
-              <NavLink
-                style={activeLink}
-                onClick={() => {
-                  setHidden(!hidden);
-                  setCloseMenu(!closeMenu);
-                }}
-                to="/create"
-              >
-                Create
-              </NavLink>
-            </li>
-          )}
-          <li>
-            <NavLink
-              style={activeLink}
+              className={styles.logout}
               onClick={() => {
                 logout();
               }}
-              to="/"
+              to="/logout"
             >
+              <BiLogOut className={styles.icon} />
               Log out
             </NavLink>
-          </li>
-        </ul>
-      </nav>
+            {/* <button className={styles.logoutButton} type="button">
+              Log out
+            </button> */}
+          </div>
+        </section>
+      </div>
     </header>
   );
 }
