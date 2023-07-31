@@ -12,7 +12,7 @@ import Update from "../pages/updateCourse/Update";
 import CreateLesson from "../pages/createLesson/CreateLesson";
 import CreateCourse from "../pages/createCourse/Createcourse";
 import Pagenotfound from "../pages/PageNotFound/Pagenotfound";
-import Navbar1 from "../components/Navbar/Navbar1";
+import Navbar from "../components/Navbar/Navbar";
 // import Navbar from "../components/Navbar/Navbar";
 // import styles from "../components/Navbar/Navbar1.module.css";
 
@@ -34,7 +34,7 @@ export default function RoutesList() {
   const protectedRouteWrapper = (Component) => [
     <ProtectedRoute key={Component}>
       {/* <div className={styles.box}> */}
-      <Navbar1 />
+      <Navbar />
       {/* <Navbar /> */}
       {/* </div> */}
       {Component}
@@ -51,7 +51,7 @@ export default function RoutesList() {
   }
   const protectedRouteWrapperAdmin = (Component) => [
     <ProtectedRouteAdmin key={Component}>
-      <Navbar1 />
+      <Navbar />
       {Component}
     </ProtectedRouteAdmin>,
   ];
