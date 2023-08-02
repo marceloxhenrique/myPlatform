@@ -14,7 +14,7 @@ import CreateCourse from "../pages/createCourse/Createcourse";
 import Pagenotfound from "../pages/PageNotFound/Pagenotfound";
 import Navbar from "../components/Navbar/Navbar";
 // import Navbar from "../components/Navbar/Navbar";
-// import styles from "../components/Navbar/Navbar1.module.css";
+import styles from "../components/Navbar/Navbar.module.css";
 
 export default function RoutesList() {
   const { currentUser } = useContext(AuthContext);
@@ -33,11 +33,10 @@ export default function RoutesList() {
 
   const protectedRouteWrapper = (Component) => [
     <ProtectedRoute key={Component}>
-      {/* <div className={styles.box}> */}
-      <Navbar />
-      {/* <Navbar /> */}
-      {/* </div> */}
-      {Component}
+      <div className={styles.box}>
+        <Navbar />
+        {Component}
+      </div>
     </ProtectedRoute>,
   ];
 
@@ -51,8 +50,10 @@ export default function RoutesList() {
   }
   const protectedRouteWrapperAdmin = (Component) => [
     <ProtectedRouteAdmin key={Component}>
-      <Navbar />
-      {Component}
+      <div className={styles.box}>
+        <Navbar />
+        {Component}
+      </div>
     </ProtectedRouteAdmin>,
   ];
 
