@@ -1,22 +1,36 @@
 .containerCourse {
-  width: 100vw;
-  max-width: 100%;
+  /* width: 100vw; */
+  width: 100%;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   background-color: var(--primaryGreen);
+  /* background-color: rgb(255, 255, 255); */
   font-family: var(--fontFamily);
-  position: relative;
+  /* position: relative; */
   padding-top: 5em;
-
+  padding: 2em;
+  /* transition: 3s; */
 }
 
-.adminContainer {
+.containerCourse > main {
+  /* background-color: aqua; */
+  width: 100%;
+  /* max-width: 1200px; */
   display: flex;
-  flex-direction: column;
-  width: 80vw;
+  flex-wrap:wrap;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  /* flex-direction: column;  */
+
 }
+/* .adminContainer {
+  display: flex;
+  flex-direction: row;
+  width: 80vw;
+} */
 
 
