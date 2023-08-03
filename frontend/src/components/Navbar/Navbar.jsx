@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { BiHomeAlt, BiUser, BiEditAlt, BiLogOut } from "react-icons/bi";
+import { BiBookOpen, BiUser, BiEditAlt, BiLogOut } from "react-icons/bi";
 import styles from "./Navbar.module.css";
 import { AuthContext } from "../../contexts/AuthContext";
 import photo from "../../assets/profilePhoto.jpg";
@@ -53,8 +53,8 @@ export default function Navbar1() {
             <ul>
               <li>
                 <NavLink to="/courses">
-                  <BiHomeAlt className={styles.icon} />
-                  Dashboard
+                  <BiBookOpen className={styles.icon} />
+                  Courses
                 </NavLink>
               </li>
               <li>
@@ -71,17 +71,6 @@ export default function Navbar1() {
                   </NavLink>
                 </li>
               )}
-              {/* <li>
-                <NavLink
-                  onClick={() => {
-                    logout();
-                  }}
-                  to="/logout"
-                >
-                  <BiLogOut className={styles.icon} />
-                  Log out
-                </NavLink>
-              </li> */}
             </ul>
             <NavLink
               className={styles.logout}
@@ -93,9 +82,6 @@ export default function Navbar1() {
               <BiLogOut className={styles.icon} />
               Log out
             </NavLink>
-            {/* <button className={styles.logoutButton} type="button">
-              Log out
-            </button> */}
           </div>
         </section>
       </div>

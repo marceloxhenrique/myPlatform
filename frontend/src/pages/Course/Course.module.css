@@ -1,36 +1,25 @@
 .containerCourse {
-  /* width: 100vw; */
   width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: var(--primaryGreen);
-  /* background-color: rgb(255, 255, 255); */
+  background-color: #e8e8e8;
   font-family: var(--fontFamily);
-  /* position: relative; */
   padding-top: 5em;
   padding: 2em;
-  /* transition: 3s; */
 }
 
 .containerCourse > main {
-  /* background-color: aqua; */
+  display: flex;
+  height: 90vh;
   width: 100%;
-  /* max-width: 1200px; */
-  display: flex;
-  flex-wrap:wrap;
-  /* display: flex; */
+  align-content: flex-start;
+  background-color: #ffffff00;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  /* flex-direction: column;  */
-
+  border-radius: 0.5em;
+  backdrop-filter: blur(2em);
 }
-/* .adminContainer {
-  display: flex;
-  flex-direction: row;
-  width: 80vw;
-} */
-
 
