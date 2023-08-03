@@ -8,10 +8,7 @@
   background-color: var(--secondaryWhite);
   padding: 0 1em;
   min-height: 4em;
-  /* position: absolute; */
-  /* position: fixed; */
   z-index: 1;
-  
 }
 
 .toggleMenu {
@@ -27,7 +24,6 @@
   position: fixed;
   right: 0;
   margin: 2em;
-
 }
 
 .toggleMenuOpen {
@@ -36,7 +32,6 @@
   background-color: var(--primaryGreen);
   margin: 0.15em 0;
   transition: .3s;
-  
 }
 
 #top {
@@ -68,6 +63,8 @@
   animation: slide .4s ease;
   transition: .3s;
   background-color: var(--backgroundOpacity);
+  backdrop-filter: blur(.4em);
+  z-index: 1;
 }
 
 @keyframes slide {
@@ -91,19 +88,18 @@
   overflow: hidden;
   animation: slide 0.3s ease;
   margin-left: -30em;
-  transition: .9s;
-  /* background-color: var(--backgroundOpacity); */
+  transition: .7s;
+  z-index: 1;
 }
 
 .menu {
   display: flex;
   flex-direction: column;
   background-color: var(--primaryGreen);
-  /* background-color: rgba(255, 166, 0, 0); */
   width: 14.5rem;
   font-size: 1.2em;
   min-height: 100vh;
-
+  height: 100%;
 }
 
 .userInfo {
@@ -146,6 +142,11 @@
   border-radius: 0.5em;
 }
 
+.menuOptions > ul > li:hover {
+  background-color: var(--backgroundOpacity);
+  transition: 0.3s;
+}
+
 .menuOptions > ul > li > a {
   display: flex;
   flex-direction: row;
@@ -158,11 +159,6 @@
   text-align: left;
   font-family: var(--fontFamily1);
   font-weight: 600;
-}
-
-.menuOptions > ul > li:hover {
-  background-color: var(--backgroundOpacity);
-  transition: 0.3s;
 }
 
 .icon  {
@@ -181,7 +177,6 @@
   padding: 0.1em 0.5em;
   text-decoration: none;
   border-radius: 0.5em;
-  border: none;
   font-family: var(--fontFamily1);
   font-weight: 600;
   background: none;
@@ -192,9 +187,8 @@
   background-color: var(--backgroundOpacity);
   transition: 0.3s;
 }
-/* /////////////////////////////// */
 
-
+/** Desktop version */
 @media (min-width: 769px) {
   .navbar > h2,
   .toggleMenu,
@@ -207,77 +201,44 @@
     background-color: var(--primaryGreen);
     display: flex;
     flex-direction: row;
-    /* position: fixed; */
     }
   
   .navbar {
     display: flex;
-    /* flex-direction: row;
-    justify-content: space-between;
-    align-items: center; */
     min-width: 14.5rem;
     max-width: 14.5rem;
-    /**/
-    /* background-color: var(--primaryGreen); */
     color: var(--primaryGreen);
-    /* font-family: var(--fontFamily);
-    padding: 0 1em;
-     */
-    /**/
     min-height: 100svh;
     position: none;
-    /* position: fixed; */
     z-index: none;
     transition: .3s;
-    
   }
 
   .menuContainer {
     display: block;
     width: 14.5rem;
     height: 100svh;
-    /* max-height: 100vh; */
-    /* top: 0; */
-    /* left: 0; */
-    /* overflow: hidden; */
     animation: none;
     transition: none;
-    /* background-color: none; */
-    
   }
 
   .menuContainerHiden {
     display: block;
     position: fixed;
-    /**/
     width: 14.5rem;
     min-height: 100svh;
-    /* max-height: 100vh; */
-    /**/
-    /* top: 0;
-    left: 0; */
-    /* overflow: hidden; */
-    /* animation: none; */
     animation: none;
-    /**/
     margin-left: 0em;
-    /**/
     transition: none;
-    /* background-color: none; */
-    /* background-color: rgb(173, 216, 230); */
   }
   .menu {
     display: flex;
     flex-direction: column;
     background-color: var(--primaryGreen);
-    /* background-color: rgb(195, 7, 7); */
     width: 14.5rem;
     font-size: 1.2em;
-    height: 100vh;
-    border: 1px solid white;
-    border-radius: 0.5em;
-    
-
+    height: 100%;
+    border-radius: 0 .2em .2em 0;
   }
 
 }
