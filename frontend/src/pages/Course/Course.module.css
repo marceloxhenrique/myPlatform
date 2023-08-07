@@ -5,21 +5,28 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: #e8e8e8;
+  background-color: var(--backgroundWhite);
   font-family: var(--fontFamily);
   padding-top: 5em;
   padding: 2em;
+  /* transition: .7s; */
 }
 
 .containerCourse > main {
   display: flex;
-  height: 90vh;
+  min-height: 90vh;
   width: 100%;
   align-content: flex-start;
-  background-color: #ffffff00;
+  background-color: #fffefe;
   flex-wrap: wrap;
   justify-content: center;
   border-radius: 0.5em;
   backdrop-filter: blur(2em);
+  transition: .3s;
 }
 
+@media (max-width: 769px) {
+  .containerCourse>main {
+      margin-top: 5em;
+    }
+}
