@@ -24,7 +24,7 @@
   padding: 1em;
 
   opacity: 0.9;
-  background-color: var(--secondaryWhite);
+  background-color: var(--mainWhite);
 }
 .showFirstPage {
   display: flex;
@@ -51,8 +51,8 @@
   border-radius: 0.4em;
   border: none;
   cursor: pointer;
-  background-color: var(--primaryGreen);
-  color: var(--secondaryWhite);
+  background-color: var(--mainGreen);
+  color: var(--mainWhite);
 }
 
 .firstPagebutton:hover {
@@ -61,7 +61,7 @@
 }
 .buttonGoToSignUp {
   border: none;
-  background-color: var(--secondaryWhite);
+  background-color: var(--mainWhite);
   font-size: 1.2em;
   text-align: center;
 }

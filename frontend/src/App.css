@@ -8,16 +8,19 @@
 
 }
 body {
-  /* width: 100%; */
   background-color: rgb(255, 255, 255);
 }
 
-
 :root {
-  --primaryGreen: #064E3B;
-  --secondaryWhite: #ffffff;
+  --mainGreen: #056039;
+  --secondaryGreen: #054F33;
+  --mainWhite: #ffffff;
+  --textColor: #054F33;
+  --backgroundWhite: #d7d6d6;
+  --hoverWhite: #7979797a;
   --gradient: linear-gradient(to right top, #064e3b, #0f5744, #17614d, #1f6a56, #26745f);
   --backgroundOpacity: rgba(0, 0, 0, 0.595);
   --fontFamily: 'Open Sans', sans-serif;
   --fontfamily2: 'Playfair Display', serif;
 }
+

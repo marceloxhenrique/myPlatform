@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import { BiBookOpen, BiUser, BiEditAlt, BiLogOut } from "react-icons/bi";
 import styles from "./Navbar.module.css";
 import { AuthContext } from "../../contexts/AuthContext";
-import photo from "../../assets/profilePhoto.jpg";
 
 export default function Navbar1() {
   const { currentUser, logout } = useContext(AuthContext);
@@ -18,7 +17,9 @@ export default function Navbar1() {
   };
   return (
     <header className={styles.navbar}>
-      <h2>MyPlatform</h2>
+      <div className={styles.title}>
+        <h2>MyPlatform</h2>
+      </div>
       <button
         onClick={handleToogle}
         type="button"
@@ -43,11 +44,8 @@ export default function Navbar1() {
         }
       >
         <section className={styles.menu}>
-          <div className={styles.userInfo}>
-            <img src={photo} alt="Profile" />
-            <p>
-              {currentUser.firstname} {currentUser.lastname}
-            </p>
+          <div className={styles.title}>
+            <h2>MyPlatform</h2>
           </div>
           <div className={styles.menuOptions}>
             <ul>
