@@ -8,7 +8,11 @@
   overflow: hidden;
   font-family: var(--fontFamily);
   background-color: rgba(0, 0, 0, 0.523);
-  transition: 3s;
+  transition: .3s;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.382);
+}
+.cardCountainer:hover {
+  scale: 1.06;
 }
 
 .leftSide {
@@ -47,14 +51,6 @@
 
 @media (min-width: 769px) {
   .cardCountainer {
-      /* display: flex;
-      flex-direction: row; */
       width: 26em;
-      /* margin: 2em 1em;
-      border-radius: 0.5em;
-      overflow: hidden;
-      font-family: var(--fontFamily);
-      background-color: rgba(0, 0, 0, 0.523);
-      transition: 3s; */
     }
 }
