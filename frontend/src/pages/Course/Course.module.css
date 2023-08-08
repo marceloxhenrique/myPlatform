@@ -7,21 +7,21 @@
   justify-content: center;
   background-color: var(--backgroundWhite);
   font-family: var(--fontFamily);
-  padding-top: 5em;
+  /* padding-top: 5em; */
   padding: 2em;
   /* transition: .7s; */
 }
 
 .containerCourse > main {
-  display: flex;
-  min-height: 90vh;
   width: 100%;
-  align-content: flex-start;
-  background-color: #fffefe;
+  min-height: 90vh;
+  display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
   justify-content: center;
   border-radius: 0.5em;
   backdrop-filter: blur(2em);
+  background-color: #fffefe;
   transition: .3s;
 }
 

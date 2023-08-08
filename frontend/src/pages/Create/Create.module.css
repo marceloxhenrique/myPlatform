@@ -1,52 +1,80 @@
 .containerCreatecourse {
-  min-height: 92dvh;
-  width: 100vw;
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 2em;
-  background-color: var(--primaryGreen);
-  font-family: var(--fontFamily);
-  color: var(--secondaryWhite);
-}
-
-.adminContainer {
-  display: flex;
-  flex-direction: column;
-  width: 80vw;
-}
-
-.containerCourse {
   width: 100vw;
   max-width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: var(--primaryGreen);
+  text-align: center;
+  padding: 2em;
+  background-color: var(--backgroundWhite);
   font-family: var(--fontFamily);
+  color: var(--secondaryWhite);
+}
 
+.adminContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--mainWhite);
+  border-radius: 0.5em;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.374);
 }
 
 .create,
+.createLesson,
 .update {
-  margin: 1em 0em;
-  padding: 1em 0em;
-  text-align: center;
+  width: 14em;
+  height: 10em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1em 1em;
+  padding: 1em 1em;
   font-size: 1.4em;
   font-weight: bold;
-  color: var(--secondaryWhite);
-  background-color: rgba(0, 0, 0, 0.554);
+  color: var(--mainGreen);
   border-radius: 0.4em;
-  cursor: pointer;
+  /* cursor: pointer; */
   transition: 0.5s;
+  text-decoration: none;
+  box-shadow: 5px 5px 10px  rgba(0, 0, 0, 0.285);
 }
 
+.create {
+  background: hsla(33, 100%, 53%, 1);
+  background: linear-gradient(45deg, hsla(33, 100%, 53%, 1) 0%, hsla(58, 100%, 68%, 1) 100%);
+  background: -moz-linear-gradient(45deg, hsla(33, 100%, 53%, 1) 0%, hsla(58, 100%, 68%, 1) 100%);
+  background: -webkit-linear-gradient(45deg, hsla(33, 100%, 53%, 1) 0%, hsla(58, 100%, 68%, 1) 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#FF930F", endColorstr="#FFF95B", GradientType=1);
+}
+
+.update {
+  background: hsla(152, 100%, 50%, 1);
+  background: linear-gradient(45deg, hsla(152, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+  background: -moz-linear-gradient(45deg, hsla(152, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+  background: -webkit-linear-gradient(45deg, hsla(152, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#00FF87", endColorstr="#60EFFF", GradientType=1);
+}
+
+.createLesson {
+  background: hsla(217, 100%, 50%, 1);
+  background: linear-gradient(45deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+  background: -moz-linear-gradient(45deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+  background: -webkit-linear-gradient(45deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#0061FF", endColorstr="#60EFFF", GradientType=1);
+}
 .create:hover,
+.createLesson:hover,
 .update:hover {
-  background-color: var(--secondaryWhite);
-  color: var(--primaryGreen);
+  scale: 1.06;
+}
+@media (max-width: 769px) {
+  .adminContainer {
+    margin-top: 5em;
+  }
 }
