@@ -1,9 +1,6 @@
 SET foreign_key_checks = 0;
 DROP TABLE IF EXISTS user, course, lesson, user_have_course;
 
-
-USE myPlatform;
-
 CREATE TABLE user (
 id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 admin BOOL DEFAULT 0,
