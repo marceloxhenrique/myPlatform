@@ -13,13 +13,13 @@
 }
 
 .adminContainer {
+  width: 100%;
+  min-height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   align-content: flex-start;
-  width: 100%;
-  min-height: 100%;
   background-color: var(--mainWhite);
   border-radius: 0.5em;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.374);
@@ -28,9 +28,11 @@
 .create,
 .createLesson,
 .update {
-  width: 14em;
-  height: 10em;
+  width: 12em;
+  height: 9em;
   display: flex;
+  flex-direction: column;
+
   align-items: center;
   justify-content: center;
   margin: 1em 1em;
@@ -39,7 +41,6 @@
   font-weight: bold;
   color: var(--mainGreen);
   border-radius: 0.4em;
-  /* cursor: pointer; */
   transition: 0.5s;
   text-decoration: none;
   box-shadow: 5px 5px 10px  rgba(0, 0, 0, 0.285);
@@ -72,6 +73,12 @@
 .createLesson:hover,
 .update:hover {
   scale: 1.06;
+}
+
+.icon {
+  width: 2em;
+  height: 2em;
+  margin-bottom: 1em;
 }
 @media (max-width: 769px) {
   .adminContainer {
