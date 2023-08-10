@@ -1,50 +1,111 @@
 .profileContainer {
-  /* min-height: 100vh; */
   width: 100vw;
-  max-width: 100%;
-  padding: 2em;
-  background-color: var(--backgroundWhite);
-  font-family: var(--fontFamily);
+  width: 100%;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
-}
-
-.profilePicture {
-  /* margin: 4em; */
-  display: flex;
-  justify-content: center;
-  height: 11em;
-  width: 11em;
-  background-color: rgb(255, 255, 255);
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.infoContainer {
-  /* background-color: gray; */
-  display: flex;
   flex-direction: column;
-  align-items: left;
-  margin: 2em 0em;
-  /* width: 90dvw; */
-  font-size: 1.1em;
-  color: var(--textWhite);
-
-}
-
-.infoContainer > span {
-  margin: 0.5em 0em;
-  font-size: 1.3em;
+  padding: .5em;
+  font-family: var(--fontFamily);
+  background-color: var(--backgroundWhite);
 }
 
 .profileBox {
-  background-color: var(--mainWhite);
-  padding: 2em;
+  width: 100%;
+  height: 100%;
+  padding: 1em ;
+  margin-top: 5em;
   display: flex;
   flex-direction: column;
+  border-radius: 1.5em;
+  transition: .3s;
+  background-color: var(--mainWhite);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.374);
+
+}
+
+.topSide {
+  display: flex;
   align-items: center;
-  margin-top: 5em;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2em .8em;
+  /* border: 1px solid black; */
   border-radius: 0.5em;
+  background-color: var(--backgroundWhite);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.374);
+}
+
+.profilePicture>img {
+  width: 7em;
+  height: 7em;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  /* overflow: hidden; */
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin: 2em;
+  font-size: 1em;
+  color: var(--textWhite);
+  /* background-color: bisque; */
+
+}
+
+.infoContainer>input {
+  padding: 0.3em;
+  margin: 0.2em 0em 1em 0em;
+  font-size: 1.3em;
+  border-radius: 0.2em;
+  border: none;
+}
+
+.infoContainer>p {
+  font-size: 1em;
+
+
+}
+
+.infoContainer>button {
+  padding: 0.5em;
+  margin: 0.2em 0em 1em 0em;
+  font-size: 1.3em;
+  border-radius: 0.2em;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background-color: #238636;
+  width: 14em;
+  margin-top: 1em;
+}
+
+.infoContainer>button:hover {
+  
+  background-color: #26a641;
+
+}
+
+
+.bottomSide {
+  padding: 2em;
+}
+
+@media (min-width: 769px) {
+  .profileBox {
+    margin-top: 0em;
+  }
+
+  .profileContainer {
+    padding: 1em;
+  }
+
+  .profileBox {
+    padding: 2em;
+  }
   
 }
