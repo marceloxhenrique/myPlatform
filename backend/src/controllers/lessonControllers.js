@@ -5,7 +5,7 @@ const models = require("../models");
 // const models = require("../../public/assets/videos/");
 
 const upload = multer({
-  dest: "./public/picture/",
+  dest: "./public/assets/videos/",
 });
 const browse = (req, res) => {
   models.lesson
@@ -81,8 +81,8 @@ const add = (req, res) => {
     const { filename } = req.file;
     const { originalname } = req.file;
     const filePath = `${uuidv4()}-${originalname}`;
-    const destinationPath = `./public/picture/${filename}`;
-    const path = `./public/picture/${filePath}`;
+    const destinationPath = `./public/assets/videos/${filename}`;
+    const path = `./public/assets/videos/${filePath}`;
     fs.rename(destinationPath, path, (error) => {
       if (error) throw err;
       res.send("File uploaded");
@@ -95,15 +95,7 @@ const add = (req, res) => {
       description: req.body.description,
       course_id: req.body.course_id,
     };
-    // console.log(lesson);
     models.lesson.insert(lesson);
-    // .then(() => {
-    //   res.sendStatus(201);
-    // })
-    // .catch((error) => {
-    //   console.error(error);
-    //   res.sendStatus(500);
-    // });
     return undefined;
   });
   return undefined;

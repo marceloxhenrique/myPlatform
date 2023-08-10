@@ -23,7 +23,7 @@ export default function Lesson() {
   }, []);
 
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-  const filePath = `${BACKEND_URL}/picture/${videoPath}`;
+  const filePath = `${BACKEND_URL}/assets/videos/${videoPath}`;
 
   return (
     <main className={styles.lessonContainer}>
