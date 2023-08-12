@@ -14,6 +14,7 @@ routerUser.post(
 );
 routerUser.get("/logout", auth.logout);
 
+routerUser.put("/upload/avatar/:id", userControllers.editProfilePicture);
 routerUser.get("/users", userControllers.browse);
 routerUser.get("/users/:id", userControllers.read);
 routerUser.put("/users/:id", userControllers.edit);

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import { toast } from "react-toastify";
 import styles from "./Profile.module.css";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -6,9 +6,10 @@ import { api } from "../../services/api";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Profile() {
+  const [showEditModal, setShowEditModal] = useState(false);
   const { currentUser } = useContext(AuthContext);
   const [userInfo, setUserInfo] = useState();
-
+  const boxRef = useRef();
   useEffect(() => {
     const getInfo = async () => {
       const res = await api.getUserInfo(currentUser.id);
@@ -23,10 +24,27 @@ export default function Profile() {
   const handleSubmit = async () => {
     try {
       await api.editUser(userInfo.id, userInfo);
-      toast.success("Your information has been submitted successfully");
+      toast.success("Profile updated successfully");
     } catch (error) {
       console.error(error);
       toast.error("Your information could not be changed");
+    }
+  };
+
+  const handleEdit = () => {
+    setShowEditModal(true);
+  };
+
+  const uploadProfilePicture = () => {
+    // setShowEditModal(false);
+  };
+
+  const removeProfilePicture = () => {
+    // setShowEditModal(false);
+  };
+  window.onclick = (event) => {
+    if (event.target !== boxRef.current) {
+      setShowEditModal(false);
     }
   };
   return (
@@ -38,6 +56,23 @@ export default function Profile() {
               src="https://cdn.iconscout.com/icon/free/png-256/free-user-3313165-2764602.png"
               alt="Profile"
             />
+            <button ref={boxRef} type="button" onClick={handleEdit}>
+              Edit photo
+            </button>
+            {showEditModal && (
+              <ul>
+                <li>
+                  <button onClick={uploadProfilePicture} type="button">
+                    Upload a photo
+                  </button>
+                </li>
+                <li>
+                  <button onClick={removeProfilePicture} type="button">
+                    Remove photo
+                  </button>
+                </li>
+              </ul>
+            )}
           </div>
           <aside className={styles.infoContainer}>
             {userInfo && (

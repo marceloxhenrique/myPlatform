@@ -97,6 +97,25 @@ export const api = {
       return undefined;
     }
   },
+
+  getUserInfo: async (id) => {
+    try {
+      const res = await instance.get(`/users/${id}`);
+      return res.data;
+    } catch (error) {
+      console.error(error);
+      return undefined;
+    }
+  },
+  editUser: async (id, data) => {
+    try {
+      const res = await instance.put(`/users/${id}`, data);
+      return res.data;
+    } catch (error) {
+      console.error(error);
+      return undefined;
+    }
+  },
 };
 
 export default {

@@ -2,11 +2,11 @@ const multer = require("multer");
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
 const models = require("../models");
-// const models = require("../../public/assets/videos/");
 
 const upload = multer({
   dest: "./public/assets/videos/",
 });
+
 const browse = (req, res) => {
   models.lesson
     .findAll()
@@ -98,7 +98,6 @@ const add = (req, res) => {
     models.lesson.insert(lesson);
     return undefined;
   });
-  return undefined;
   // TODO validations (length, format...)
 };
 
