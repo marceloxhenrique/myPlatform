@@ -7,14 +7,12 @@
   justify-content: center;
   background-color: var(--backgroundWhite);
   font-family: var(--fontFamily);
-  /* padding-top: 5em; */
   padding: 2em;
-  /* transition: .7s; */
 }
 
 .containerCourse > main {
   width: 100%;
-  min-height: 90vh;
+  min-height: 100%;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
@@ -23,6 +21,7 @@
   backdrop-filter: blur(2em);
   background-color: #fffefe;
   transition: .3s;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.374);
 }
 
 @media (max-width: 769px) {

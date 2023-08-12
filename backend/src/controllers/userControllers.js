@@ -1,4 +1,9 @@
+const multer = require("multer");
+const fs = require("fs");
+const { v4: uuidv4 } = require("uuid");
 const models = require("../models");
+
+const upload = multer({ dest: "./public/assets/images/" });
 
 const browse = (req, res) => {
   models.user
@@ -50,6 +55,35 @@ const edit = (req, res) => {
     });
 };
 
+const editProfilePicture = (req, res) => {
+  // TODO validations (length, format...)
+
+  // user.id = parseInt(req.params.id, 10);
+  upload.single("profilePicture")(req, res, (err) => {
+    if (err) {
+      console.error(err);
+      return res.sendStatus(500);
+    }
+    const { filename } = req.file;
+    const { originalname } = req.file;
+    const filePath = `${uuidv4()}-${originalname}`;
+    const destinationPath = `./public/assets/images/${filename}`;
+    const path = `./public/assets/images/${filePath}`;
+    fs.rename(destinationPath, path, (error) => {
+      if (error) throw err;
+      res.send("File uploaded");
+    });
+
+    const userId = parseInt(req.params.id, 10);
+    const user = {
+      profilePicture: filePath,
+      id: userId,
+    };
+    models.user.editAvatar(user);
+    return undefined;
+  });
+};
+
 const add = (req, res) => {
   const user = req.body;
 
@@ -88,4 +122,5 @@ module.exports = {
   edit,
   add,
   destroy,
+  editProfilePicture,
 };

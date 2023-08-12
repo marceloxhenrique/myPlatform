@@ -28,6 +28,13 @@ class UserManager extends AbstractManager {
     );
   }
 
+  editAvatar(user) {
+    return this.database.query(
+      `UPDATE ${this.table} SET profilePicture = ? WHERE id = ${user.id}`,
+      [user.profilePicture, user.id]
+    );
+  }
+
   findUserByEmailPassword(email) {
     return this.database.query(`SELECT * FROM ${this.table} WHERE email = ?`, [
       email,

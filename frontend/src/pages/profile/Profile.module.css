@@ -36,6 +36,15 @@
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.374);
 }
 
+.profilePicture {
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* background-color: red; */
+  position: relative;
+}
+
 .profilePicture>img {
   width: 7em;
   height: 7em;
@@ -43,7 +52,66 @@
   justify-content: center;
   background-color: rgb(255, 255, 255);
   border-radius: 50%;
+  margin: 1em;
   /* overflow: hidden; */
+}
+
+.profilePicture > ul {
+  
+  width: 10em;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  margin-top: 1em ;
+  background-color: #fff;
+  list-style-type: none;
+  position: absolute;
+  right: -4em;
+  bottom: -4.2em;
+  border-radius: 0.2em;
+  /* border: 1px solid black; */
+  padding: .1em .1em;
+  /* right: 2em; */
+  /* overflow: hidden; */
+}
+.profilePicture > ul > li {
+  width: 100%;
+  /* background-color: tomato; */
+  padding: .1em 0em;
+  overflow: hidden;
+}
+
+.profilePicture>ul::before {
+  /* width: 1em; */
+  /* height: 1em; */
+  content: "";
+  display: block;
+  position: absolute;
+  /* background-color: #2E81F7; */
+  
+  border-left: .5em solid transparent;
+  border-bottom: .5em solid #fff;
+  border-top: .5em solid transparent;
+  border-right: .5em solid transparent;
+  top: -1em;
+  left: 1em;
+  /* right: 2em; */
+}
+
+.profilePicture > ul > li > button {
+  width: 100%;
+  padding: .3em 0em;
+  /* margin: .2em; */
+  border: none;
+  list-style-type: none;
+  cursor: pointer;
+  background-color: #fff;
+  border-radius: 0.2em;
+}
+.profilePicture > ul > li > button:hover {
+  
+  background-color: rgb(164, 164, 164);
 }
 
 .infoContainer {
@@ -51,6 +119,7 @@
   flex-direction: column;
   align-items: left;
   margin: 2em;
+  margin-top: 3em;
   font-size: 1em;
   color: var(--textWhite);
   /* background-color: bisque; */
@@ -63,6 +132,7 @@
   font-size: 1.3em;
   border-radius: 0.2em;
   border: none;
+  outline-color: #2E81F7;
 }
 
 .infoContainer>p {
@@ -72,6 +142,8 @@
 }
 
 .infoContainer>button {
+  min-width: 11em;
+  max-width: 15em;
   padding: 0.5em;
   margin: 0.2em 0em 1em 0em;
   font-size: 1.3em;
@@ -80,7 +152,6 @@
   cursor: pointer;
   color: white;
   background-color: #238636;
-  width: 14em;
   margin-top: 1em;
 }
 
