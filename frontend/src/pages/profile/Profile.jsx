@@ -6,22 +6,41 @@ import { api } from "../../services/api";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Profile() {
-  const [showEditModal, setShowEditModal] = useState(false);
   const { currentUser } = useContext(AuthContext);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [filePath, setFilePath] = useState();
   const [userInfo, setUserInfo] = useState();
-  const boxRef = useRef();
-  useEffect(() => {
-    const getInfo = async () => {
-      const res = await api.getUserInfo(currentUser.id);
-      setUserInfo(res);
-    };
-    getInfo();
-  }, [currentUser]);
+  const [file, setFile] = useState(false);
 
   const handleChange = (e) => {
     setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
   };
-  const handleSubmit = async () => {
+
+  const getInfo = async () => {
+    const res = await api.getUserInfo(currentUser.id);
+    setUserInfo(res);
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+    setFilePath(`${BACKEND_URL}/assets/images/${res.profilePicture}`);
+  };
+
+  const inputRef = useRef();
+  const uploadProfilePicture = async () => {
+    setShowEditModal(false);
+    setFile(!file);
+    const formData = new FormData();
+    formData.append("profilePicture", inputRef.current.files[0]);
+    try {
+      await api.updateProfilePicture(userInfo.id, formData);
+      toast.success("Your photo is updated", {
+        position: "bottom-right",
+      });
+    } catch (error) {
+      console.error(error);
+    }
+    getInfo();
+  };
+
+  const handleUpdateProfile = async () => {
     try {
       await api.editUser(userInfo.id, userInfo);
       toast.success("Profile updated successfully");
@@ -35,36 +54,48 @@ export default function Profile() {
     setShowEditModal(true);
   };
 
-  const uploadProfilePicture = () => {
-    // setShowEditModal(false);
+  const removeProfilePicture = () => {
+    setShowEditModal(false);
   };
 
-  const removeProfilePicture = () => {
-    // setShowEditModal(false);
-  };
+  const boxRef = useRef();
   window.onclick = (event) => {
-    if (event.target !== boxRef.current) {
+    if (event.target === boxRef.current) {
       setShowEditModal(false);
     }
   };
+
+  useEffect(() => {
+    getInfo();
+  }, []);
   return (
     <main className={styles.profileContainer}>
       <section className={styles.profileBox}>
-        <div className={styles.topSide}>
+        <div className={styles.topSide} ref={boxRef}>
           <div className={styles.profilePicture}>
-            <img
-              src="https://cdn.iconscout.com/icon/free/png-256/free-user-3313165-2764602.png"
-              alt="Profile"
-            />
-            <button ref={boxRef} type="button" onClick={handleEdit}>
+            <img src={filePath} alt="Profile avatar" />
+            <button
+              className={styles.editPhoto}
+              type="button"
+              onClick={handleEdit}
+            >
               Edit photo
             </button>
             {showEditModal && (
               <ul>
                 <li>
-                  <button onClick={uploadProfilePicture} type="button">
-                    Upload a photo
-                  </button>
+                  <form encType="multipart/form-data">
+                    <input
+                      id="actual-btn"
+                      className={styles.uploadInput}
+                      ref={inputRef}
+                      type="file"
+                      onChange={uploadProfilePicture}
+                    />
+                    <label className={styles.labelUpload} htmlFor="actual-btn">
+                      Upload a photo
+                    </label>
+                  </form>
                 </li>
                 <li>
                   <button onClick={removeProfilePicture} type="button">
@@ -98,7 +129,7 @@ export default function Profile() {
                   value={userInfo.email}
                   onChange={handleChange}
                 />
-                <button type="button" onClick={handleSubmit}>
+                <button type="button" onClick={handleUpdateProfile}>
                   Update profile
                 </button>
               </>

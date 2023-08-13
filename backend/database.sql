@@ -8,7 +8,7 @@ firstname VARCHAR(50) NOT NULL,
 lastname VARCHAR(50) NOT NULL,
 email VARCHAR(50) NOT NULL UNIQUE,
 hashedPassword VARCHAR(100) NOT NULL,
-profilePicture VARCHAR(200) NULL,
+profilePicture VARCHAR(200) DEFAULT "avatar.jpeg" NULL,
 aboutSection TEXT NULL
 );
 
@@ -44,8 +44,8 @@ FOREIGN KEY (course_id) REFERENCES course(id) ON DELETE CASCADE
 
 INSERT INTO user (admin, firstname, lastname, email, hashedPassword, profilePicture, aboutSection)
 VALUES
-(0, 'Marcelo', 'da Silva', 'marcelo@example.com', '$2b$10$4UlN2HIZ2hVX89fyeV/6Zu/4pOYBYExvz9F2RNxszZVWnrKkye.hG', 'url', 'Text about me'),
-(1, 'Admin', 'admin', 'admin@mail.com', '$2b$10$XS9w9qWHtvFLazC8k3ensextqzsr69u7FnaMQWSBPO0g8GiX52ioS', 'url', 'Text about me');
+(0, 'Marcelo', 'da Silva', 'marcelo@example.com', '$2b$10$4UlN2HIZ2hVX89fyeV/6Zu/4pOYBYExvz9F2RNxszZVWnrKkye.hG', 'cb75d3f7-2208-495a-9fed-e4437d4fafa5-pexels-italo-melo-2379004.jpg', 'Text about me'),
+(1, 'Admin', 'admin', 'admin@mail.com', '$2b$10$XS9w9qWHtvFLazC8k3ensextqzsr69u7FnaMQWSBPO0g8GiX52ioS', 'avatar.jpeg', 'Text about me');
 
 INSERT INTO course (title, description, color, initials)
 VALUES 

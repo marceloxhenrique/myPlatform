@@ -20,6 +20,7 @@ body {
   --hoverWhite: #7979797a;
   --gradient: linear-gradient(to right top, #064e3b, #0f5744, #17614d, #1f6a56, #26745f);
   --backgroundOpacity: rgba(0, 0, 0, 0.595);
+  --boxShadow: 3px 3px 10px rgba(0, 0, 0, 0.359);
   --fontFamily: 'Open Sans', sans-serif;
   --fontfamily2: 'Playfair Display', serif;
 }
