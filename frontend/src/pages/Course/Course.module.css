@@ -12,12 +12,13 @@
 
 .containerCourse > main {
   width: 100%;
-  min-height: 100%;
+  height: 100%;
+  min-height: 88vh;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
   justify-content: center;
-  border-radius: 0.5em;
+  border-radius: 1.5em;
   backdrop-filter: blur(2em);
   background-color: #fffefe;
   transition: .3s;
@@ -27,5 +28,6 @@
 @media (max-width: 769px) {
   .containerCourse>main {
       margin-top: 5em;
+      
     }
 }
