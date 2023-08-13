@@ -116,6 +116,15 @@ export const api = {
       return undefined;
     }
   },
+  updateProfilePicture: async (id, data) => {
+    try {
+      const res = await instance.put(`/upload/avatar/${id}`, data);
+      return res.data;
+    } catch (error) {
+      console.error(error);
+      return undefined;
+    }
+  },
 };
 
 export default {
