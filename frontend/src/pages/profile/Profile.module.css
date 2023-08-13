@@ -28,10 +28,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 1em .8em;
-  border-radius: 0.5em;
-  background-color: var(--backgroundWhite);
-  box-shadow: var(--boxShadow);
+  margin-bottom: 1em;
 }
 
 .profilePicture {
@@ -40,6 +37,7 @@
   flex-direction: column;
   position: relative;
   transition: .3s;
+  margin: .5em;
 }
 
 .profilePicture > img {
@@ -62,7 +60,7 @@
   color: var(--mainGreen);
   border-radius: 0.5em;
   transition: .3s;
-  box-shadow: var(--boxShadow);
+  /* box-shadow: var(--boxShadow); */
 }
 
 .profilePicture > ul {
@@ -134,7 +132,7 @@
   display: flex;
   flex-direction: column;
   align-items: left;
-  margin: 2em;
+  margin: .5em;
   margin-top: 2em;
   font-size: 1em;
   color: var(--textWhite);
@@ -147,8 +145,8 @@
   border-radius: 0.2em;
   border: none;
   outline-color: #2E81F7;
-  box-shadow: var(--boxShadow);
   transition: .3s;
+  background-color: var(--hoverWhite);
 }
 
 .infoContainer > p {
@@ -167,7 +165,6 @@
   color: white;
   background-color: #238636;
   margin-top: 1em;
-  box-shadow: var(--boxShadow);
   transition: .3s;
 }
 
@@ -182,8 +179,12 @@
 @media (min-width: 769px) {
   .profileBox {
     margin-top: 0em;
-    padding: 2em;
+    padding: 1em;
   }
+    .topSide {
+      flex-direction: row;
+      padding: 1.5em;
+    }
 
   .profileContainer {
     padding: 1em;
@@ -192,13 +193,11 @@
 }
 
 @media (min-width: 992px) {
-  .topSide {
-    flex-direction: row;
-    padding: 1.5em;
-  }
+  
 
   .infoContainer {
     margin-left: 6em;
+
   }
 
   .infoContainer>input {
@@ -206,10 +205,6 @@
     padding: 0.4em .8em;
     margin: 0.2em 0em .8em 0em;
     font-size: 1.4em;
-    border-radius: 0.2em;
-    border: none;
-    outline-color: #2E81F7;
-    box-shadow: var(--boxShadow);
   }
 
   .infoContainer>p {
@@ -219,13 +214,7 @@
   .profilePicture>img {
     width: 12em;
     height: 12em;
-    display: flex;
-    justify-content: center;
-    background-color: rgb(255, 255, 255);
-    border-radius: 50%;
     margin: 0em 0em 1em 0em;
-    object-fit: cover;
-    box-shadow: var(--boxShadow);
   }
 
   .editPhoto {
@@ -246,9 +235,7 @@
   }
 
   .infoContainer>button {
-    /* min-width: 18em; */
     max-width: 20em;
-    /* background-color: red; */
   }
 
 

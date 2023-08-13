@@ -136,6 +136,7 @@ export default function Profile() {
             )}
           </aside>
         </div>
+        <hr />
         <div className={styles.bottomSide}>
           <h1>Another information</h1>
         </div>
