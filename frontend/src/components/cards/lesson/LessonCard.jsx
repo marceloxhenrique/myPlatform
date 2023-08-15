@@ -1,28 +1,39 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { BiSolidCheckCircle } from "react-icons/bi";
 import styles from "./LessonCard.module.css";
 
-export default function LessonCard({ lessons }) {
+export default function LessonCard({ lessons, color }) {
   return (
-    <div>
+    <main>
       {lessons &&
         lessons.map((lesson) => (
-          <div key={lesson.id} className={styles.cardCountainer}>
-            <section className={styles.leftSide}>Video</section>
-            <section className={styles.rightSide}>
-              <h2>{lesson.lesson_name}</h2>
+          <section key={lesson.id} className={styles.cardCountainer}>
+            <div className={styles.topSide}>
+              {true && <BiSolidCheckCircle className={styles.watchedCheck} />}
+              <p>{lesson.lesson_name}</p>
+            </div>
+            <div className={styles.bottomSide}>
+              <p>{lesson.description.slice(0, 50)}...</p>
               <Link to={`lesson/${lesson.id}`}>
-                <div className={styles.buttonAllLessons}>
-                  <button type="button">Watch</button>
-                </div>
+                <button className={styles.watchLessonButton} type="button">
+                  Watch
+                </button>
               </Link>
-            </section>
-          </div>
+              <span
+                style={{ backgroundColor: `${color}` }}
+                className={styles.bottomBar}
+              />
+            </div>
+          </section>
         ))}
-    </div>
+    </main>
   );
 }
+LessonCard.defaultProps = {
+  color: "",
+};
 
 LessonCard.propTypes = {
   lessons: PropTypes.arrayOf(
@@ -31,9 +42,10 @@ LessonCard.propTypes = {
       lesson_name: PropTypes.string.isRequired,
       duration: PropTypes.number.isRequired,
       complete: PropTypes.number,
-      // file_path: PropTypes.string.isRequired,
       description: PropTypes.string,
       course_id: PropTypes.number.isRequired,
     })
   ).isRequired,
+
+  color: PropTypes.string,
 };
