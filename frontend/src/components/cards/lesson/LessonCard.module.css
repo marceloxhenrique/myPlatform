@@ -1,50 +1,70 @@
 .cardCountainer {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  width: 80dvw;
-  margin: 2em 1em;
-  border-radius: 0.5em;
-  overflow: hidden;
-  font-family: var(--fontFamily);
-  background-color: rgba(0, 0, 0, 0.523);
-}
-
-.leftSide {
-  display: flex;
   justify-content: center;
-  width: 100%;
-  height: 10em;
-  background-color: rgb(81, 81, 81);
-}
-
-
-.rightSide {
-  padding: 2em 2em;
-  width: 100%;
-  color: var(--secondaryWhite);
-}
-
-.rightSide > h2,
-.rightSide > p {
-  padding-top: 1em;
-  width: 100%;
-  color: var(--secondaryWhite);
-}
-
-.buttonAllLessons {
-  text-align: left;
-  /* background-color: red; */
-
-}
-
-.buttonAllLessons>button {
-  border: none;
-  border-radius: 0.4em;
+  margin: 2em 0em;
   padding: 0.5em;
-  margin-top: 1.5em;
-  background-image: (--gradient);
-  font-size: 1em;
-  font-weight: 600;
-  cursor: pointer;
+  border-radius: 0.2em;
+  overflow: hidden;
+  background-color: var(--backgroundWhite);
+  position: relative;
+  font-family: var(--body-fonts);
+  border: 1px solid black;
 }
 
+.topSide {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1em;
+}
+.topSide > p {
+  margin-left: 1em;
+  font-size: 1.4em;
+  font-weight: 400;
+}
+
+.watchedCheck {
+  font-size: 2em;
+  color: green;
+  background-color: aliceblue;
+  border-radius: 3em;
+  border: none;
+}
+
+.bottomSide {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: .5em;
+  text-align: right;
+}
+
+.bottomSide > p {
+  text-align: left;
+}
+
+.watchLessonButton {
+  padding: .4em 1em;
+  margin-top: .4em;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  border-radius: .2em;
+  color: #FFF;
+  background-color: var(--mainGreen);
+}
+
+.watchLessonButton:hover {
+  scale: 1.1;
+  background-color: var(--secondaryGreen);
+}
+
+.bottomBar {
+  position: absolute;
+  width: 100%;
+  height: 0.5em;
+  bottom: 0;
+  left: 0;
+}
