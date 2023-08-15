@@ -1,13 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import { toast } from "react-toastify";
+import { BiArrowBack } from "react-icons/bi";
 import styles from "./ComponentCreateCourse.module.css";
 import { api } from "../../services/api";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function CardcreateCourse() {
-  // const [coursedata, setCoursedata] = useState({});
-
+  const navigate = useNavigate();
   const handleData = async (values, { resetForm }) => {
     try {
       if (values) api.registerCourse(values);
@@ -32,13 +33,13 @@ export default function CardcreateCourse() {
         validate={(values) => {
           const errors = {};
           if (!values.title) {
-            errors.title = "Name required";
+            errors.title = "Name is required";
           } else if (!values.description) {
-            errors.description = "Lesson name is required";
+            errors.description = "Description is required";
           } else if (!values.color) {
-            errors.color = "URL is required";
+            errors.color = "Color is required";
           } else if (!values.initials) {
-            errors.initials = "Content is required";
+            errors.initials = "Initials is required";
           }
           return errors;
         }}
@@ -55,8 +56,17 @@ export default function CardcreateCourse() {
           /* and other goodies */
         }) => (
           <form className={styles.createCourseCard} onSubmit={handleSubmit}>
-            <div className={styles.inputInfoName}>
-              <h2>Course name</h2>
+            <section>
+              <button
+                onClick={() => {
+                  navigate(-1);
+                }}
+                type="button"
+                className={styles.backButton}
+              >
+                <BiArrowBack />
+              </button>
+              <h2>Name</h2>
               <input
                 type="text"
                 name="title"
@@ -67,23 +77,7 @@ export default function CardcreateCourse() {
               <p className={styles.required}>
                 {errors.title && touched.title && errors.title}
               </p>
-            </div>
-            <div className={styles.inputInfo}>
-              <h2>Description</h2>
-              <input
-                type="text"
-                name="description"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.description}
-              />
-              <p className={styles.required}>
-                {errors.description &&
-                  touched.description &&
-                  errors.description}
-              </p>
-            </div>
-            <div className={styles.inputInfo}>
+
               <h2>Color</h2>
               <input
                 type="text"
@@ -95,8 +89,6 @@ export default function CardcreateCourse() {
               <p className={styles.required}>
                 {errors.color && touched.color && errors.color}
               </p>
-            </div>
-            <div className={styles.inputInfo}>
               <h2>Initials</h2>
               <input
                 type="text"
@@ -108,14 +100,28 @@ export default function CardcreateCourse() {
               <p className={styles.required}>
                 {errors.initials && touched.initials && errors.initials}
               </p>
-            </div>
-            <button
-              className={styles.buttonRegister}
-              type="submit"
-              disabled={isSubmitting}
-            >
-              Submit
-            </button>
+              <h2>Description</h2>
+              <textarea
+                type="text"
+                name="description"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.description}
+                className={styles.descriptionField}
+              />
+              <p className={styles.required}>
+                {errors.description &&
+                  touched.description &&
+                  errors.description}
+              </p>
+              <button
+                className={styles.buttonRegister}
+                type="submit"
+                disabled={isSubmitting}
+              >
+                Submit
+              </button>
+            </section>
           </form>
         )}
       </Formik>

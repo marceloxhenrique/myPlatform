@@ -5,7 +5,7 @@ import styles from "./Createcourse.module.css";
 export default function CreateCourse() {
   return (
     <div className={styles.containerCreatecourse}>
-      <h1>Create a New Course</h1>
+      {/* <h1>New Course</h1> */}
       <ComponentCreateCourse />
     </div>
   );

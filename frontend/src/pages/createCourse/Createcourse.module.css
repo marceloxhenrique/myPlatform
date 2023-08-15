@@ -1,13 +1,17 @@
 .containerCreatecourse{
-  min-height: 92dvh;
-  width: 100vw;
+  min-height: 100svh;
+  width: 100%;
   max-width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 2em;
-  background-color: var(--primaryGreen);
-  font-family: var(--fontFamily);
-  color: var(--secondaryWhite);
+  padding: 1em;
+  background-color: var(--backgroundWhite);
+  /* background-color: aqua; */
+}
+
+.containerCreatecourse > h1 {
+  /* width: 100%; */
+  text-align: left;
+  background-color: red;
+  /* margin-top: 2em; */
 }

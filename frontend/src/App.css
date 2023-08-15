@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@400;500;600;900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Ysabeau+Infant:wght@400;600;700&display=swap');
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,14 +13,14 @@ body {
 :root {
   --mainGreen: #056039;
   --secondaryGreen: #054F33;
-  --mainWhite: #ffffff;
   --textColor: #054F33;
+  --mainWhite: #ffffff;
   --backgroundWhite: #d7d6d6;
   --hoverWhite: #7979797a;
   --gradient: linear-gradient(to right top, #064e3b, #0f5744, #17614d, #1f6a56, #26745f);
   --backgroundOpacity: rgba(0, 0, 0, 0.595);
   --boxShadow: 3px 3px 10px rgba(0, 0, 0, 0.359);
-  --fontFamily: 'Open Sans', sans-serif;
-  --fontfamily2: 'Playfair Display', serif;
+  --title-fonts: 'Ysabeau Infant', sans-serif;
+  --body-fonts: 'Open Sans', sans-serif;
 }
 

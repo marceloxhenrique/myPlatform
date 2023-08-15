@@ -1,84 +1,143 @@
 .createCourseCard{
-  min-height: 70dvh;
-  width: 80dvw;
+  width: 100%;
+  min-height: 88svh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1em 0em;
-  padding: 2em;
+  margin-top: 5em;
+  padding: 1em;
   border-radius: 0.5em;
-  background-color: rgba(0, 0, 0, 0.554);
-  font-family: var(--fontFamily);
-    
+  background-color: var(--mainWhite);
+  font-family: var(--body-fonts);
+  transition: .3s;
 }
+
+.createCourseCard > section {
+  margin-top: 2em;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: .3s;
+  width: 100%;
+  max-width: 992px;
+}
+
+.backButton {
+  width: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-bottom: .8em;
+  font-size: 2.6em;
+  cursor: pointer;
+  border: 1px solid transparent;
+  color: var(--mainGreen);
+  background-color: transparent;
+  border-radius: 0.1em;
+  transition: .15s;
+}
+
+.backButton:hover {
+  scale: 1.15;
+}
+
 .required {
   color: red;
-  
 }
 
-.createCourseCard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-}
-.inputInfo {
-  text-align: center;
-  width: 80%;
-  margin: 1em;
-  border-radius: 0.5em;
+.createCourseCard > section > h2{
+  font-size: 1.2em;
 }
 
-.inputInfoName {
-  text-align: center;
-  width: 80%;
-  border-radius: 0.5em;
-}
-
-.inputInfoName > input {
-  width: 100%;
-  height: 2em;
+.createCourseCard > section > input{
+  padding: 0.6em .5em;
+  margin: 0.2em 0em .5em 0em;
+  font-size: 1em;
+  border-radius: 0.2em;
   border: none;
-  padding: 1em;
-  margin: 1em 0em;
-  font-size: 1.5em;
-  border-radius: 0.3em;
-
-}
-
-.inputInfoName > h2 {
-  text-align: left;
-
-}
-
-.inputInfo > input {
+  outline-color: #2E81F7;
+  transition: .3s;
+  border: 1px solid var(--mainGreen);
+  background-color: rgb(241, 237, 237);
   width: 100%;
-  height: 1.5em;
-  border: none;
-  padding: 1em;
-  margin: 1em 0em 1em 0em;
-  font-size: 1.5em;
-  border-radius: 0.3em;
-
+  max-width: 20em;
 }
 
-.inputInfo > h2 {
-  text-align: left;
-
+.createCourseCard > section > .descriptionField  {
+  /* background-color: red; */
+  padding: 0.6em .5em;
+  margin: 0.2em 0em .5em 0em;
+  font-size: 1.4em;
+  border-radius: 0.2em;
+  border: none;
+  outline-color: #2E81F7;
+  transition: .3s;
+  border: 1px solid var(--mainGreen);
+  background-color: rgb(241, 237, 237);
+  height: 9em;
+  resize: none;
+  width: 100%;
+  max-width: 28em;
+}
+.createCourseCard > section > p {
+  text-align: center;
+  margin-bottom: .8em;
+  width: 100%;
+  max-width: 20em;
 }
 
 
 .buttonRegister {
-  padding: 1em 3em;
-  font-size: 1.4em;
-  cursor: pointer;
-  border-radius: 0.4em;
+  padding: 0.5em;
+  font-size: 1.2em;
+  border-radius: 0.2em;
   border: none;
-  font-weight: bolder;
+  cursor: pointer;
+  color: white;
+  background-color: #238636;
+  margin-top: 1em;
+  transition: .3s;
+  width: 100%;
+  max-width: 16.6em;
 }
 
 .buttonRegister:hover {
-  background-color: var(--primaryGreen);
-  color: var(--secondaryWhite);
+  background-color: #26a641;
 }
+
+@media (min-width: 769px) {
+  .createCourseCard {
+    min-height: calc(100vh - 2em);
+    margin-top: 0em;
+  }
+  .createCourseCard>section {
+    /* background-color: red; */
+    padding: 0 1em;
+  }
+  .createCourseCard>section>input {
+    font-size: 1.2em;
+  }
+
+  .createCourseCard>section>.descriptionField {
+    font-size: 1.6em;
+  }
+
+  .createCourseCard>section>h2 {
+    font-size: 1.4em;
+  }
+
+  .buttonRegister {
+    padding: 0.5em;
+    font-size: 1.2em;
+    border-radius: 0.2em;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: #238636;
+    margin-top: 1em;
+    transition: .3s;
+    width: 100%;
+    max-width: 20em;
+  }
+}
+
