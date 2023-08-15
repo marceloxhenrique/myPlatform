@@ -20,13 +20,16 @@ export default function Course() {
   }, []);
 
   return (
-    <div className={styles.containerCourse}>
-      <main>
-        {coursesAvailable &&
-          coursesAvailable.map((course) => (
-            <CourseCard key={course.id} course={course} />
-          ))}
-      </main>
-    </div>
+    <main className={styles.containerCourse}>
+      <section>
+        <h1>Courses</h1>
+        <aside>
+          {coursesAvailable &&
+            coursesAvailable.map((course) => (
+              <CourseCard key={course.id} course={course} />
+            ))}
+        </aside>
+      </section>
+    </main>
   );
 }

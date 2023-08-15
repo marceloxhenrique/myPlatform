@@ -71,6 +71,7 @@ export default function Profile() {
   return (
     <main className={styles.profileContainer}>
       <section className={styles.profileBox}>
+        <h1>Profile</h1>
         <div className={styles.topSide} ref={boxRef}>
           <div className={styles.profilePicture}>
             <img src={filePath} alt="Profile avatar" />

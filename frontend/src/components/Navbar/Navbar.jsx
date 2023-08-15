@@ -17,7 +17,7 @@ export default function Navbar1() {
   };
   return (
     <header className={styles.navbar}>
-      <div className={styles.title}>
+      <div className={styles.title1}>
         <h2>MyPlatform</h2>
       </div>
       <button
@@ -44,7 +44,7 @@ export default function Navbar1() {
         }
       >
         <section className={styles.menu}>
-          <div className={styles.title}>
+          <div className={styles.title2}>
             <h2>MyPlatform</h2>
           </div>
           <div className={styles.menuOptions}>

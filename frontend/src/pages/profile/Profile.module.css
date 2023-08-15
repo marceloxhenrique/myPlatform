@@ -1,18 +1,18 @@
 .profileContainer {
   width: 100vw;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   flex-direction: column;
   padding: 1em;
-  font-family: var(--fontFamily);
   background-color: var(--backgroundWhite);
 }
 
 .profileBox {
   width: 100%;
   height: 100%;
+  min-height: 88svh;
   padding: 1em ;
   margin-top: 5em;
   display: flex;
@@ -20,7 +20,14 @@
   border-radius: 1.5em;
   transition: .3s;
   background-color: var(--mainWhite);
-  box-shadow: var(--boxShadow);
+  box-shadow: var(--boxShadow); 
+}
+
+.profileBox > h1{
+  padding: .2em .4em;
+  color: var(--mainGreen);
+  font-size: 2em;
+  font-family: var(--body-fonts);
 }
 
 .topSide {
@@ -29,6 +36,7 @@
   justify-content: center;
   flex-direction: column;
   margin-bottom: 1em;
+  font-family: var(--body-fonts);
 }
 
 .profilePicture {
@@ -60,17 +68,15 @@
   color: var(--mainGreen);
   border-radius: 0.5em;
   transition: .3s;
-  /* box-shadow: var(--boxShadow); */
 }
 
 .profilePicture > ul {
-  
   width: 10em;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 1em ;
-  background-color: #fff;
+  background-color: var(--backgroundWhite);
   list-style-type: none;
   position: absolute;
   right: -4em;
@@ -84,7 +90,7 @@
   display: block;
   position: absolute;
   border-left: .5em solid transparent;
-  border-bottom: .5em solid #fff;
+  border-bottom: .5em solid var(--backgroundWhite);
   border-top: .5em solid transparent;
   border-right: .5em solid transparent;
   top: -1em;
@@ -97,7 +103,7 @@
   justify-content: center;
   margin: .1em 0em;
   overflow: hidden;
-  background-color: #c8c8c8;
+  background-color: var(--mainWhite);
 }
 
 .profilePicture > ul > li > button {
@@ -174,30 +180,42 @@
 
 .bottomSide {
   padding: 2em;
+  font-family: var(--body-fonts);
 }
 
 @media (min-width: 769px) {
   .profileBox {
     margin-top: 0em;
     padding: 1em;
+    min-height: calc(100svh - 2em);
   }
-    .topSide {
-      flex-direction: row;
-      padding: 1.5em;
-    }
+  .topSide {
+    flex-direction: row;
+    padding: 1.5em;
+  }
+
+  .infoContainer {
+    margin: 1em;
+  }
+
+  .profilePicture {
+    margin: 1em;
+  }
 
   .profileContainer {
     padding: 1em;
   }
-  
 }
 
 @media (min-width: 992px) {
-  
+  .profileBox>h1 {
+      padding: .2em .4em;
+      font-size: 2.5em;
+    }
 
   .infoContainer {
     margin-left: 6em;
-
+    margin-top: 1em;
   }
 
   .infoContainer>input {
@@ -231,14 +249,10 @@
 
   .infoContainer>input {
     width: 18em;
-    
   }
 
   .infoContainer>button {
     max-width: 20em;
   }
-
-
-
 
 }
