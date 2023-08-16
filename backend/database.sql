@@ -34,13 +34,19 @@ CREATE TABLE lesson (
 id INT PRIMARY KEY NOT NULL  AUTO_INCREMENT,
 lesson_name VARCHAR(50) NOT NULL,
 duration INT NOT NULL,
-complete BOOLEAN default 0,
 video VARCHAR(255) NOT NULL,
 description TEXT,
 course_id INT NOT NULL,
 FOREIGN KEY (course_id) REFERENCES course(id) ON DELETE CASCADE
 );
 
+CREATE TABLE finished_lesson (
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+lesson_id INT NOT NULL,
+user_id INT NOT NULL,
+FOREIGN KEY (lesson_id) REFERENCES lesson(id) ON DELETE CASCADE,
+FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
+);
 
 INSERT INTO user (admin, firstname, lastname, email, hashedPassword, profilePicture, aboutSection)
 VALUES
@@ -55,14 +61,14 @@ VALUES
 ('React Js', 'React js for beginners', '#47CEF6', 'R');
 
 
-INSERT INTO lesson (lesson_name, duration, complete, video, description, course_id)
+INSERT INTO lesson (lesson_name, duration, video, description, course_id)
 VALUES
-('HTML Introduction', 40, 0, 'https://www.youtube.com/embed/BrmXGsXNwuo', 'HTML Tutorial for Beginners - Learn HTML for a career in web development. This HTML tutorial teaches you everything you need to get started.', 1),
-('CSS Introduction', 40, 0, 'url', 'Text about CSS Lesson', 2),
-('Variables', 30, 0, 'url', 'Text about this lesson', 3),
-('How JavaScript Works', 40, 0, 'url', 'Text about JavaScript', 3),
-('Understandig React Js', 45, 0, 'url', 'Text about React Js lesson', 4),
-('Components in React Js', 45, 0, 'url', 'Components are independent and reusable bits of code. They serve the same purpose as JavaScript functions, but work in isolation and return HTML. Components come in two types, Class components and Function components, in this tutorial we will concentrate on Function components.', 4);
+('HTML Introduction', 40, 'https://www.youtube.com/embed/BrmXGsXNwuo', 'HTML Tutorial for Beginners - Learn HTML for a career in web development. This HTML tutorial teaches you everything you need to get started.', 1),
+('CSS Introduction', 40, 'url', 'Text about CSS Lesson', 2),
+('Variables', 30, 'url', 'Text about this lesson', 3),
+('How JavaScript Works', 40, 'url', 'Text about JavaScript', 3),
+('Understandig React Js', 45, 'url', 'Text about React Js lesson', 4),
+('Components in React Js', 45, 'url', 'Components are independent and reusable bits of code. They serve the same purpose as JavaScript functions, but work in isolation and return HTML. Components come in two types, Class components and Function components, in this tutorial we will concentrate on Function components.', 4);
 
 SET foreign_key_checks = 1;
 
