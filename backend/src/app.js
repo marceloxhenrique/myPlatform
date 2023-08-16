@@ -29,11 +29,13 @@ const router = require("./routes/router");
 const routerUser = require("./routes/routerUser");
 const routerCourse = require("./routes/routerCourse");
 const routerLesson = require("./routes/routerLesson");
+const routerFinishedLesson = require("./routes/routerFinishedLesson");
 
 app.use(router);
 app.use(routerUser);
 app.use(routerCourse);
 app.use(routerLesson);
+app.use(routerFinishedLesson);
 
 // serve the `backend/public` folder for public resources
 

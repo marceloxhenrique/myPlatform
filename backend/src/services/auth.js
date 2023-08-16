@@ -47,7 +47,6 @@ const verifyPassword = async (req, res) => {
 
 const verifyToken = (req, res, next) => {
   try {
-    // console.log(req.cookies)
     const token = req.cookies.accesstoken;
     if (!token) return res.sendStatus(403);
 

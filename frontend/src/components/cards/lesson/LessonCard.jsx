@@ -41,7 +41,6 @@ LessonCard.propTypes = {
       id: PropTypes.number.isRequired,
       lesson_name: PropTypes.string.isRequired,
       duration: PropTypes.number.isRequired,
-      complete: PropTypes.number,
       description: PropTypes.string,
       course_id: PropTypes.number.isRequired,
     })
