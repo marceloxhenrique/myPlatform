@@ -2,7 +2,7 @@ const express = require("express");
 
 const routerFinishedLesson = express.Router();
 
-const finishedLessonControllers = require("../controllers/FinishedLessonControllers");
+const finishedLessonControllers = require("../controllers/finishedLessonControllers");
 
 routerFinishedLesson.get("/finishedlesson", finishedLessonControllers.browse);
 routerFinishedLesson.get(
