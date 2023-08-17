@@ -5,6 +5,10 @@ const routerFinishedLesson = express.Router();
 const finishedLessonControllers = require("../controllers/finishedLessonControllers");
 
 routerFinishedLesson.get("/finishedlesson", finishedLessonControllers.browse);
+routerFinishedLesson.get(
+  "/finishedlesson/userid/:id",
+  finishedLessonControllers.browseFinishedLesson
+);
 routerFinishedLesson.get("/finishedlesson/:id", finishedLessonControllers.read);
 routerFinishedLesson.put("/finishedlesson/:id", finishedLessonControllers.edit);
 routerFinishedLesson.post("/finishedlesson", finishedLessonControllers.add);

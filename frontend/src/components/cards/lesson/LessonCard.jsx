@@ -1,17 +1,37 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { BiSolidCheckCircle } from "react-icons/bi";
 import styles from "./LessonCard.module.css";
+import { AuthContext } from "../../../contexts/AuthContext";
+import { api } from "../../../services/api";
 
 export default function LessonCard({ lessons, color }) {
+  const { currentUser } = useContext(AuthContext);
+  const [finishedlesson, setFinishedLesson] = useState([]);
+
+  const getFinishedLessons = async () => {
+    const res = await api.getFinishedLessons(currentUser.id);
+    setFinishedLesson(res);
+  };
+  useEffect(() => {
+    getFinishedLessons();
+  }, []);
+
   return (
     <main>
       {lessons &&
         lessons.map((lesson) => (
           <section key={lesson.id} className={styles.cardCountainer}>
             <div className={styles.topSide}>
-              {true && <BiSolidCheckCircle className={styles.watchedCheck} />}
+              {finishedlesson.map((item) =>
+                item.lesson_id === lesson.id ? (
+                  <BiSolidCheckCircle
+                    key={item.lesson_id}
+                    className={styles.watchedCheck}
+                  />
+                ) : undefined
+              )}
               <p>{lesson.lesson_name}</p>
             </div>
             <div className={styles.bottomSide}>

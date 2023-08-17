@@ -5,16 +5,24 @@ class finishedLessonManager extends AbstractManager {
     super({ table: "finished_lesson" });
   }
 
-  insert(item) {
-    return this.database.query(`insert into ${this.table} (title) values (?)`, [
-      item.title,
-    ]);
+  insert(finishedLesson) {
+    return this.database.query(
+      `INSERT INTO ${this.table} (lesson_id, user_id) values (?, ?)`,
+      [finishedLesson.lesson_id, finishedLesson.userId]
+    );
   }
 
-  update(item) {
+  update(finishedLesson) {
     return this.database.query(
-      `update ${this.table} set title = ? where id = ?`,
-      [item.title, item.id]
+      `UPDATE ${this.table} SET lesson_id = ?, user_id WHERE id = ?`,
+      [finishedLesson.lesson_id, finishedLesson.user_id, finishedLesson.id]
+    );
+  }
+
+  getFinishedLesson(id) {
+    return this.database.query(
+      `SELECT * FROM ${this.table} WHERE user_id = ?`,
+      [id]
     );
   }
 }

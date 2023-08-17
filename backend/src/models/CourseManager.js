@@ -12,13 +12,6 @@ class CourseManager extends AbstractManager {
     );
   }
 
-  updat(course) {
-    return this.database.query(
-      `UPDATE ${this.table} SET title = ? where id = ?`,
-      [course.title, course.id]
-    );
-  }
-
   update(course) {
     return this.database.query(
       `UPDATE ${this.table} SET title = ?, description = ?, color = ?, initials = ? WHERE id = ?`,
