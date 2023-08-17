@@ -125,6 +125,15 @@ export const api = {
       return undefined;
     }
   },
+  getFinishedLessons: async (id) => {
+    try {
+      const res = await instance.get(`/finishedlesson/userid/${id}`);
+      return res.data;
+    } catch (error) {
+      console.error(error);
+      return undefined;
+    }
+  },
 };
 
 export default {
