@@ -33,7 +33,7 @@ const ItemManager = require("./ItemManager");
 const UserManager = require("./UserManager");
 const CourseManager = require("./CourseManager");
 const LessonManager = require("./LessonManager");
-const FinishedLesson = require("./FinishedLessonManager");
+const FinishedLesson = require("./FinishedlessonManager");
 
 models.item = new ItemManager();
 models.user = new UserManager();
