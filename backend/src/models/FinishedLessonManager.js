@@ -1,6 +1,6 @@
 const AbstractManager = require("./AbstractManager");
 
-class finishedLessonManager extends AbstractManager {
+class FinishedLessonManager extends AbstractManager {
   constructor() {
     super({ table: "finished_lesson" });
   }
@@ -27,4 +27,4 @@ class finishedLessonManager extends AbstractManager {
   }
 }
 
-module.exports = finishedLessonManager;
+module.exports = FinishedLessonManager;
