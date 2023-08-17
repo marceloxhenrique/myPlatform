@@ -17,7 +17,7 @@ function App() {
     },
     spacing: 10,
     typography: {
-      fontFamily: "Jost",
+      fontFamily: "Arial",
     },
   });
 
