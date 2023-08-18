@@ -9,13 +9,13 @@
   flex-direction: column;
   justify-content: center;
   padding: 0.5em;
+  padding-bottom: 1em;
   border-radius: 0.2em;
   background-color: var(--backgroundWhite);
   position: relative;
   font-family: var(--body-fonts);
   border: 1px solid black;
   min-height: 100%;
-
 }
 
 .topSide {
@@ -52,7 +52,6 @@
 
 .watchLessonButton {
   padding: .4em 1em;
-  /* margin: 1em; */
   font-size: 1em;
   font-weight: 500;
   cursor: pointer;
@@ -73,4 +72,10 @@
   height: 0.5em;
   bottom: 0;
   left: 0;
+}
+
+@media (min-width: 769px) {
+  .bottomSide {
+    height: 4.5em;
+  }
 }
