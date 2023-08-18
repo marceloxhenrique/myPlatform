@@ -39,7 +39,15 @@ export default function CourseById() {
           <BiArrowBack />
         </button>
         <h1>{course.title}</h1>
-        {lessons && <LessonCard lessons={lessons} color={course.color} />}
+        <aside>
+          {/* {lessons && <LessonCard lessons={lessons} color={course.color} />} */}
+          {lessons &&
+            lessons.map((lesson) => (
+              <div className={styles.lessons}>
+                <LessonCard lesson={lesson} color={course.color} />
+              </div>
+            ))}
+        </aside>
       </section>
     </main>
   );

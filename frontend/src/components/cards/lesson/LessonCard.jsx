@@ -6,7 +6,7 @@ import styles from "./LessonCard.module.css";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { api } from "../../../services/api";
 
-export default function LessonCard({ lessons, color }) {
+export default function LessonCard({ lesson, color }) {
   const { currentUser } = useContext(AuthContext);
   const [finishedlesson, setFinishedLesson] = useState([]);
 
@@ -19,35 +19,35 @@ export default function LessonCard({ lessons, color }) {
   }, []);
 
   return (
-    <main>
-      {lessons &&
-        lessons.map((lesson) => (
-          <section key={lesson.id} className={styles.cardCountainer}>
-            <div className={styles.topSide}>
-              {finishedlesson.map((item) =>
-                item.lesson_id === lesson.id ? (
-                  <BiSolidCheckCircle
-                    key={item.lesson_id}
-                    className={styles.watchedCheck}
-                  />
-                ) : undefined
-              )}
-              <p>{lesson.lesson_name}</p>
-            </div>
-            <div className={styles.bottomSide}>
-              <p>{lesson.description.slice(0, 50)}...</p>
-              <Link to={`lesson/${lesson.id}`}>
-                <button className={styles.watchLessonButton} type="button">
-                  Watch
-                </button>
-              </Link>
-              <span
-                style={{ backgroundColor: `${color}` }}
-                className={styles.bottomBar}
-              />
-            </div>
-          </section>
-        ))}
+    <main className={styles.main}>
+      {lesson && (
+        <section key={lesson.id} className={styles.cardCountainer}>
+          <div className={styles.topSide}>
+            {finishedlesson.map((item) =>
+              item.lesson_id === lesson.id ? (
+                <BiSolidCheckCircle
+                  key={item.lesson_id}
+                  className={styles.watchedCheck}
+                />
+              ) : undefined
+            )}
+            <p>{lesson.lesson_name}</p>
+          </div>
+          <div className={styles.bottomSide}>
+            <p>{lesson.description}...</p>
+            {/* <p>{lesson.description.slice(0, 50)}...</p> */}
+            <Link to={`lesson/${lesson.id}`}>
+              <button className={styles.watchLessonButton} type="button">
+                Watch
+              </button>
+            </Link>
+            <span
+              style={{ backgroundColor: `${color}` }}
+              className={styles.bottomBar}
+            />
+          </div>
+        </section>
+      )}
     </main>
   );
 }
@@ -56,7 +56,7 @@ LessonCard.defaultProps = {
 };
 
 LessonCard.propTypes = {
-  lessons: PropTypes.arrayOf(
+  lesson: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       lesson_name: PropTypes.string.isRequired,
