@@ -1,16 +1,21 @@
+.main {
+  height: 100%;
+}
 .cardCountainer {
   width: 100%;
+  min-width: 15em;
+  max-width: 26em;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 2em 0em;
   padding: 0.5em;
   border-radius: 0.2em;
-  overflow: hidden;
   background-color: var(--backgroundWhite);
   position: relative;
   font-family: var(--body-fonts);
   border: 1px solid black;
+  min-height: 100%;
+
 }
 
 .topSide {
@@ -18,35 +23,36 @@
   flex-direction: row;
   margin-bottom: 1em;
 }
+
 .topSide > p {
-  margin-left: 1em;
   font-size: 1.4em;
   font-weight: 400;
 }
 
 .watchedCheck {
   font-size: 2em;
+  min-width: 1em;
   color: green;
-  background-color: aliceblue;
   border-radius: 3em;
   border: none;
+  margin-right: .5em;
 }
 
 .bottomSide {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: .5em;
   text-align: right;
 }
 
 .bottomSide > p {
   text-align: left;
+  
 }
 
 .watchLessonButton {
   padding: .4em 1em;
-  margin-top: .4em;
+  /* margin: 1em; */
   font-size: 1em;
   font-weight: 500;
   cursor: pointer;
