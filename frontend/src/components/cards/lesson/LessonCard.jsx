@@ -34,8 +34,7 @@ export default function LessonCard({ lesson, color }) {
             <p>{lesson.lesson_name}</p>
           </div>
           <div className={styles.bottomSide}>
-            <p>{lesson.description}...</p>
-            {/* <p>{lesson.description.slice(0, 50)}...</p> */}
+            <p>{lesson.description.slice(0, 45)}...</p>
             <Link to={`lesson/${lesson.id}`}>
               <button className={styles.watchLessonButton} type="button">
                 Watch
@@ -63,6 +62,7 @@ LessonCard.propTypes = {
       duration: PropTypes.number.isRequired,
       description: PropTypes.string,
       course_id: PropTypes.number.isRequired,
+      slice: PropTypes.number.isRequired,
     })
   ).isRequired,
 

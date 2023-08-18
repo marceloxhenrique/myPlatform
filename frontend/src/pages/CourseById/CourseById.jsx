@@ -40,7 +40,6 @@ export default function CourseById() {
         </button>
         <h1>{course.title}</h1>
         <aside>
-          {/* {lessons && <LessonCard lessons={lessons} color={course.color} />} */}
           {lessons &&
             lessons.map((lesson) => (
               <div className={styles.lessons}>

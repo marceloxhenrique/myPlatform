@@ -59,6 +59,11 @@
   font-size: 2em;
   font-family: var(--body-fonts);
 }
+@media (min-width: 320px) {
+  .lessons {
+    width: 26em;
+  }
+}
 
 @media (min-width: 769px) {
   .courseByIdCard>section{
