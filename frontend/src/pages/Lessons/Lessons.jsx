@@ -1,12 +1,13 @@
 import React, { useEffect, useState, useContext } from "react";
-import { BiSolidCheckCircle, BiChevronLeft } from "react-icons/bi";
-import { useParams, NavLink } from "react-router-dom";
+import { BiSolidCheckCircle, BiChevronLeft, BiArrowBack } from "react-icons/bi";
+import { useParams, NavLink, useNavigate } from "react-router-dom";
 import ReactPlayer from "react-player";
 import styles from "./Lessons.module.css";
 import { api } from "../../services/api";
 import { AuthContext } from "../../contexts/AuthContext";
 
 export default function Lesson() {
+  const navigate = useNavigate();
   const { currentUser } = useContext(AuthContext);
   const [finishedlesson, setFinishedLesson] = useState([]);
   const [modalLessons, setModalLessons] = useState(false);
@@ -48,6 +49,15 @@ export default function Lesson() {
       {lesson ? (
         <section>
           <aside>
+            <button
+              onClick={() => {
+                navigate(-1);
+              }}
+              type="button"
+              className={styles.backButton}
+            >
+              <BiArrowBack />
+            </button>
             <h1>
               {lesson.lesson_name}
               <button
