@@ -1,27 +1,27 @@
 .lessonContainer {
-  width: 100vw;
-  max-width: 100%;
-  min-height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100vw;
+  max-width: 100%;
+  min-height: 100svh;
   padding: 1em;
   background-color: var(--backgroundWhite);
 }
 
 .lessonContainer > section {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
   width: 100%;
   height: 100%;
   min-height: 88svh;
   margin-top: 5em;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
   border-radius: 1.5em;
   transition: .3s;
+  position: relative;
   background-color: var(--mainWhite);
   box-shadow: var(--boxShadow);
-  position: relative;
 }
 
 .lessonContainer > section > aside {
@@ -31,6 +31,24 @@
   padding: 0em 1em;
 }
 
+.backButton {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: 1em;
+  margin: .4em 0em;
+  font-size: 2.4em;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 0.1em;
+  transition: .3s;
+  color: var(--mainGreen);
+  background-color: transparent;
+}
+
+.backButton:hover {
+  scale: 1.15;
+}
 
 .playerContainer {
   display: flex;
@@ -44,7 +62,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 1em 0em;
+  padding-bottom: 1em ;
   color: var(--mainGreen);
   font-family: var(--body-fonts);
 }
@@ -61,15 +79,15 @@
 }
 
 .closeModal {
-  background-color: transparent;
-  font-size: 1em;
-  border: none;
-  width: 4em;
   display: flex;
   align-items: center;
-  color: #cbcbcb;
+  width: 4em;
   margin-left: .6em;
+  font-size: 1em;
+  border: none;
   cursor: pointer;
+  color: #cbcbcb;
+  background-color: transparent;
 }
 
 .closeModal:hover {
@@ -81,20 +99,20 @@
 }
 
 .lessonContainer > section > aside > p {
-  max-width: 30em;
+  min-width: 100%;
   margin-top: 1em;
+  margin-bottom: 2em;
   padding: 1em;
   font-size: 1em;
+  border-radius: .2em;
   font-family: var(--body-fonts);
   background-color: lightgray;
-  border-radius: .5em;
 }
 
 .lessonsList {
-  max-width: 42em;
-  min-width: 20em;
   display: flex;
   flex-direction: column;
+  min-width: 18em;
   height: 100%;
   position: absolute;
   top: 0;
@@ -110,6 +128,7 @@
   display: flex;
   border: none;
   background-color: transparent;
+  margin: .2em 0em;
   padding: .6em .8em;
   border-radius: .2em;
   font-family: var(--body-fonts);
@@ -117,19 +136,18 @@
   cursor: pointer;
   color: #e6e6e6;
   text-decoration: none;
-  
 }
 .lessonlistButtons:hover{
   background-color: #00000088;
 }
 
 .watchedCheck {
-  font-size: 1.5em;
   min-width: 1em;
-  color: #08ed08;
+  font-size: 1.5em;
   border-radius: 3em;
   border: none;
   margin-right: .3em;
+  color: #08ed08;
 }
 .watchedNotCheck {
   font-size: 1.5em;
@@ -139,31 +157,29 @@
   margin-right: .3em;
 }
 
-@media (min-width: 576px) {
-  /* .playerContainer {
-  } */
-}
-
 @media (min-width: 769px) {
   .lessonContainer > section {
     margin-top: 0em;
     min-height: calc(100svh - 2em);
   }
 
-  /* .playerContainer {
-  } */
-  .lessonContainer > section > aside > p {
-    max-width: 30em;
-    margin-top: 1em;
-    padding: 1em;
-    font-size: 1.2em;
-    font-family: var(--body-fonts);
-    background-color: lightgray;
-    border-radius: .5em;
+  .lessonContainer>section>aside {
+    min-height: calc(100svh - 2em);
   }
-}
 
-@media (min-width: 992px) {
-  
+  .lessonsList {
+    display: flex;
+    flex-direction: column;
+    min-width: 24em;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    border-radius: .5em;
+    background-color: rgba(84, 84, 84, 0.89);
+    transition: .3s;
+    backdrop-filter: blur(.5em);
+  }
 }
 
