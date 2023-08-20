@@ -55,16 +55,13 @@ LessonCard.defaultProps = {
 };
 
 LessonCard.propTypes = {
-  lesson: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      lesson_name: PropTypes.string.isRequired,
-      duration: PropTypes.number.isRequired,
-      description: PropTypes.string,
-      course_id: PropTypes.number.isRequired,
-      slice: PropTypes.number.isRequired,
-    })
-  ).isRequired,
+  lesson: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    lesson_name: PropTypes.string.isRequired,
+    duration: PropTypes.number.isRequired,
+    description: PropTypes.string,
+    course_id: PropTypes.number.isRequired,
+  }).isRequired,
 
   color: PropTypes.string,
 };

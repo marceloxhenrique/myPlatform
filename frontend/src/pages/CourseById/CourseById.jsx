@@ -42,7 +42,7 @@ export default function CourseById() {
         <aside>
           {lessons &&
             lessons.map((lesson) => (
-              <div className={styles.lessons}>
+              <div key={lesson.id} className={styles.lessons}>
                 <LessonCard lesson={lesson} color={course.color} />
               </div>
             ))}

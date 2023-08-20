@@ -1,49 +1,169 @@
 .lessonContainer {
-  width: 100dvw;
+  width: 100vw;
   max-width: 100%;
-  min-height: 92dvh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--primaryGreen);
-  font-family: var(--fontFamily);
-}
-
-.playerContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 90dvw;
-  height: 45dvh;
-  /* background-color: black; */
-}
-
-/* .playerContainer > ReactPlayer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 90dvw;
-  height: 45dvh;
-  background-color: black;
-} */
-
-.boxLesson {
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90dvw;
+  padding: 1em;
+  background-color: var(--backgroundWhite);
 }
 
-.boxLesson > h1 {
-  text-align: center;
-  margin: 1em;
-  color: var(--secondaryWhite);
+.lessonContainer > section {
+  width: 100%;
+  height: 100%;
+  min-height: 88svh;
+  margin-top: 5em;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  border-radius: 1.5em;
+  transition: .3s;
+  background-color: var(--mainWhite);
+  box-shadow: var(--boxShadow);
+  position: relative;
 }
 
-.boxLesson > p {
+.lessonContainer > section > aside {
+  width: 100%;
+  height: 100%;
+  min-height: 88svh;
+  padding: 0em 1em;
+}
+
+
+.playerContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.lessonContainer > section > aside > h1 {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1em 0em;
+  color: var(--mainGreen);
+  font-family: var(--body-fonts);
+}
+
+.openModal {
+  padding: .4em .8em;
+  font-size: .8em;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  border-radius: .2em;
+  color: #FFF;
+  background-color: var(--mainGreen);
+}
+
+.closeModal {
+  background-color: transparent;
+  font-size: 1em;
+  border: none;
+  width: 4em;
+  display: flex;
+  align-items: center;
+  color: #cbcbcb;
+  margin-left: .6em;
+  cursor: pointer;
+}
+
+.closeModal:hover {
+  color: var(--mainWhite);
+}
+
+.backIcon {
+  font-size: 2em;
+}
+
+.lessonContainer > section > aside > p {
+  max-width: 30em;
   margin-top: 1em;
-  font-size: 1.4em;
-  text-align: justify;
-  color: var(--secondaryWhite);
+  padding: 1em;
+  font-size: 1em;
+  font-family: var(--body-fonts);
+  background-color: lightgray;
+  border-radius: .5em;
+}
+
+.lessonsList {
+  max-width: 42em;
+  min-width: 20em;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  border-radius: .5em;
+  background-color: rgba(84, 84, 84, 0.89);
+  transition: .3s;
+  backdrop-filter: blur(.5em);
+}
+
+.lessonlistButtons{
+  display: flex;
+  border: none;
+  background-color: transparent;
+  padding: .6em .8em;
+  border-radius: .2em;
+  font-family: var(--body-fonts);
+  font-size: 1em;
+  cursor: pointer;
+  color: #e6e6e6;
+  text-decoration: none;
+  
+}
+.lessonlistButtons:hover{
+  background-color: #00000088;
+}
+
+.watchedCheck {
+  font-size: 1.5em;
+  min-width: 1em;
+  color: #08ed08;
+  border-radius: 3em;
+  border: none;
+  margin-right: .3em;
+}
+.watchedNotCheck {
+  font-size: 1.5em;
+  min-width: 1em;
+  border-radius: 3em;
+  border: none;
+  margin-right: .3em;
+}
+
+@media (min-width: 576px) {
+  /* .playerContainer {
+  } */
+}
+
+@media (min-width: 769px) {
+  .lessonContainer > section {
+    margin-top: 0em;
+    min-height: calc(100svh - 2em);
+  }
+
+  /* .playerContainer {
+  } */
+  .lessonContainer > section > aside > p {
+    max-width: 30em;
+    margin-top: 1em;
+    padding: 1em;
+    font-size: 1.2em;
+    font-family: var(--body-fonts);
+    background-color: lightgray;
+    border-radius: .5em;
+  }
+}
+
+@media (min-width: 992px) {
+  
 }
 
