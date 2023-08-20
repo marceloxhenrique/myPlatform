@@ -47,10 +47,14 @@
 
 .bottomSide > p {
   text-align: left;
-  
+  margin: 1em 0em;
+}
+.watchLessonButton {
+  height: 1.8em;
 }
 
-.watchLessonButton {
+.watchLessonButton > a {
+  
   padding: .4em 1em;
   font-size: 1em;
   font-weight: 500;
@@ -59,23 +63,23 @@
   border-radius: .2em;
   color: #FFF;
   background-color: var(--mainGreen);
+  text-decoration: none;
+  margin-bottom: 4em;
 }
-
-.watchLessonButton:hover {
-  scale: 1.1;
+.watchLessonButton > a:hover {
   background-color: var(--secondaryGreen);
 }
 
-.bottomBar {
-  position: absolute;
-  width: 100%;
-  height: 0.5em;
-  bottom: 0;
-  left: 0;
+.watchLessonButton:hover {
+  scale: 1.05;
+  margin: 0em .5em;
+  
 }
 
-@media (min-width: 769px) {
-  .bottomSide {
-    height: 4.5em;
-  }
+.bottomBar {
+  width: 100%;
+  height: 0.5em;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
