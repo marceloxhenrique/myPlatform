@@ -35,11 +35,9 @@ export default function LessonCard({ lesson, color }) {
           </div>
           <div className={styles.bottomSide}>
             <p>{lesson.description.slice(0, 45)}...</p>
-            <Link to={`lesson/${lesson.id}`}>
-              <button className={styles.watchLessonButton} type="button">
-                Watch
-              </button>
-            </Link>
+            <span className={styles.watchLessonButton}>
+              <Link to={`lesson/${lesson.id}`}>Watch</Link>
+            </span>
             <span
               style={{ backgroundColor: `${color}` }}
               className={styles.bottomBar}
