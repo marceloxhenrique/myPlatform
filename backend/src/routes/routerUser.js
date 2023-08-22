@@ -19,6 +19,8 @@ routerUser.get("/users", userControllers.browse);
 routerUser.get("/users/:id", userControllers.read);
 routerUser.put("/users/:id", userControllers.edit);
 routerUser.post("/users", userControllers.add);
+routerUser.post("/refresh", auth.verifyRefreshToken);
+
 routerUser.delete("/users/:id", userControllers.destroy);
 
 module.exports = routerUser;

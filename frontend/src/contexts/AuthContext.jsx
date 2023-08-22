@@ -2,7 +2,6 @@ import { useState, useEffect, createContext, useMemo } from "react";
 import { PropTypes } from "prop-types";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-// import APIService from "../services/APIService";
 
 export const AuthContext = createContext();
 
@@ -32,11 +31,17 @@ export function AuthContextProvider({ children }) {
       console.error(error);
     }
   };
+
+  const isAuthenticated = () => {
+    return currentUser !== null;
+  };
+
   const memo = useMemo(() => {
     return {
       currentUser,
       login,
       logout,
+      isAuthenticated,
     };
   }, [currentUser]);
 
