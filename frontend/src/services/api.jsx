@@ -134,17 +134,6 @@ export const api = {
       return undefined;
     }
   },
-  getCurrentUser: async () => {
-    try {
-      const res = await instance.get(`/currentuser`, {
-        withCredentials: true,
-      });
-      return res.data;
-    } catch (error) {
-      console.error(error);
-      return undefined;
-    }
-  },
 };
 
 export default {

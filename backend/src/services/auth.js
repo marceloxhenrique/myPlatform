@@ -62,9 +62,4 @@ const logout = (req, res) => {
   res.status(200).json("User has been logged out");
 };
 
-module.exports = {
-  hashPassword,
-  verifyPassword,
-  verifyToken,
-  logout,
-};
+module.exports = { hashPassword, verifyPassword, verifyToken, logout };

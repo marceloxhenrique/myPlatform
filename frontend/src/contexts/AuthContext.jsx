@@ -2,26 +2,23 @@ import { useState, useEffect, createContext, useMemo } from "react";
 import { PropTypes } from "prop-types";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { api } from "../services/api";
+// import APIService from "../services/APIService";
 
 export const AuthContext = createContext();
 
 export function AuthContextProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState(
+    JSON.parse(localStorage.getItem("user") || "{}")
+  );
   const navigate = useNavigate();
 
-  const getCurrentUser = async () => {
-    const res = await api.getCurrentUser();
-    setCurrentUser(res);
-    if (res === undefined) navigate("/");
-  };
-
   useEffect(() => {
-    getCurrentUser();
-  }, []);
+    if (!currentUser.id) navigate("/");
+  }, [currentUser.id, navigate]);
 
   const login = (_user) => {
     setCurrentUser(_user);
+    localStorage.setItem("user", JSON.stringify(_user));
   };
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
