@@ -1,6 +1,7 @@
 const multer = require("multer");
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
+const jwt = require("jsonwebtoken");
 const models = require("../models");
 
 const upload = multer({ dest: "./public/assets/images/" });
@@ -116,6 +117,25 @@ const destroy = (req, res) => {
     });
 };
 
+const getCurrentUser = (req, res) => {
+  try {
+    const token = req.cookies.accesstoken;
+    if (!token) return res.sendStatus(403);
+
+    const decode = jwt.decode(token);
+    models.user.find(decode.sub).then(([rows]) => {
+      if (rows[0] == null) {
+        res.sendStatus(404);
+      } else {
+        res.send(rows[0]);
+      }
+    });
+    return undefined;
+  } catch (err) {
+    return res.sendStatus(403);
+  }
+};
+
 module.exports = {
   browse,
   read,
@@ -123,4 +143,5 @@ module.exports = {
   add,
   destroy,
   editProfilePicture,
+  getCurrentUser,
 };
