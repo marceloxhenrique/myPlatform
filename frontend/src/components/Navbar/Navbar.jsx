@@ -12,7 +12,7 @@ export default function Navbar1() {
     if (currentUser && currentUser.admin) {
       setAdminview(true);
     }
-  }, [currentUser]);
+  }, []);
 
   const handleToogle = () => {
     setMenuToggle(!menuToggle);
