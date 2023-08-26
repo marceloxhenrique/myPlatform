@@ -13,17 +13,13 @@ import CreateLesson from "../pages/createLesson/CreateLesson";
 import CreateCourse from "../pages/createCourse/Createcourse";
 import Pagenotfound from "../pages/PageNotFound/Pagenotfound";
 import Navbar from "../components/Navbar/Navbar";
-// import Navbar from "../components/Navbar/Navbar";
 import styles from "../components/Navbar/Navbar.module.css";
 
 export default function RoutesList() {
-  const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const { currentUser } = useContext(AuthContext);
 
   function ProtectedRoute({ children }) {
-    if (!currentUser) {
-      return navigate("/");
-    }
     return children;
   }
 
@@ -42,7 +38,7 @@ export default function RoutesList() {
 
   function ProtectedRouteAdmin({ children }) {
     useEffect(() => {
-      if (!currentUser.admin) {
+      if (currentUser && !currentUser.admin) {
         navigate("/courses");
       }
     }, [currentUser]); // Call navigate() inside useEffect

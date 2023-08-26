@@ -12,8 +12,9 @@ routerUser.post(
   authControllers.getUserByEmailMiddleware,
   auth.verifyPassword
 );
+routerUser.use(auth.verifyToken);
+routerUser.get("/currentuser", userControllers.getCurrentUser);
 routerUser.get("/logout", auth.logout);
-
 routerUser.put("/upload/avatar/:id", userControllers.editProfilePicture);
 routerUser.get("/users", userControllers.browse);
 routerUser.get("/users/:id", userControllers.read);

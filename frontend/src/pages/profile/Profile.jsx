@@ -66,7 +66,9 @@ export default function Profile() {
   };
 
   useEffect(() => {
-    getInfo();
+    if (currentUser && currentUser.id) {
+      getInfo();
+    }
   }, []);
   return (
     <main className={styles.profileContainer}>
