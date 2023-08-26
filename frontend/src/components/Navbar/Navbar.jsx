@@ -9,12 +9,17 @@ export default function Navbar1() {
   const [adminview, setAdminview] = useState(false);
   const [menuToggle, setMenuToggle] = useState(false);
   useEffect(() => {
-    if (currentUser.admin) setAdminview(true);
+    if (currentUser && currentUser.admin) {
+      setAdminview(true);
+    }
   }, [currentUser]);
 
   const handleToogle = () => {
     setMenuToggle(!menuToggle);
   };
+  if (currentUser === undefined) {
+    return null;
+  }
   return (
     <header className={styles.navbar}>
       <div className={styles.title1}>

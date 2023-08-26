@@ -29,7 +29,6 @@ export function AuthContextProvider({ children }) {
     try {
       await axios.get(`${BACKEND_URL}/logout`, { withCredentials: true });
       setCurrentUser({});
-      localStorage.removeItem("user");
       navigate("/");
     } catch (error) {
       console.error(error);
