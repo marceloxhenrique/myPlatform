@@ -16,13 +16,10 @@ import Navbar from "../components/Navbar/Navbar";
 import styles from "../components/Navbar/Navbar.module.css";
 
 export default function RoutesList() {
-  const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const { currentUser } = useContext(AuthContext);
 
   function ProtectedRoute({ children }) {
-    if (!currentUser) {
-      return navigate("/");
-    }
     return children;
   }
 
