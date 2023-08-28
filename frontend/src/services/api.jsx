@@ -136,9 +136,17 @@ export const api = {
   },
   getCurrentUser: async () => {
     try {
-      const res = await instance.get(`/currentuser`, {
-        withCredentials: true,
-      });
+      const res = await instance.get(`/currentuser`);
+      return res.data;
+    } catch (error) {
+      console.error(error);
+      return undefined;
+    }
+  },
+
+  refreshToken: async () => {
+    try {
+      const res = await instance.post(`/refresh`);
       return res.data;
     } catch (error) {
       console.error(error);

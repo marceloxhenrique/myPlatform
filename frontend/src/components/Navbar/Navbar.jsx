@@ -5,7 +5,7 @@ import styles from "./Navbar.module.css";
 import { AuthContext } from "../../contexts/AuthContext";
 
 export default function Navbar1() {
-  const { currentUser, logout } = useContext(AuthContext);
+  const { currentUser, logout, getCurrentUser } = useContext(AuthContext);
   const [adminview, setAdminview] = useState(false);
   const [menuToggle, setMenuToggle] = useState(false);
   useEffect(() => {
@@ -18,6 +18,7 @@ export default function Navbar1() {
     setMenuToggle(!menuToggle);
   };
   if (currentUser === undefined) {
+    getCurrentUser();
     return null;
   }
   return (

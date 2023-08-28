@@ -36,9 +36,10 @@ class UserManager extends AbstractManager {
   }
 
   findUserByEmailPassword(email) {
-    return this.database.query(`SELECT * FROM ${this.table} WHERE email = ?`, [
-      email,
-    ]);
+    return this.database.query(
+      `SELECT id, admin, hashedPassword FROM ${this.table} WHERE email = ?`,
+      [email]
+    );
   }
 }
 

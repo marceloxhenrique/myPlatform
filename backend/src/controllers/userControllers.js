@@ -119,7 +119,7 @@ const destroy = (req, res) => {
 
 const getCurrentUser = (req, res) => {
   try {
-    const token = req.cookies.accesstoken;
+    const token = req.cookies.accessToken;
     if (!token) return res.sendStatus(403);
 
     const decode = jwt.decode(token);
