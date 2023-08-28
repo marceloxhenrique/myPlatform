@@ -9,20 +9,6 @@ export const AuthContext = createContext();
 export function AuthContextProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   const navigate = useNavigate();
-
-  const getCurrentUser = async () => {
-    const res = await api.getCurrentUser();
-    setCurrentUser(res);
-    if (res === undefined) navigate("/");
-  };
-
-  useEffect(() => {
-    getCurrentUser();
-  }, []);
-
-  const login = (_user) => {
-    setCurrentUser(_user);
-  };
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
   const logout = async () => {
@@ -35,6 +21,32 @@ export function AuthContextProvider({ children }) {
     }
   };
 
+  const getCurrentUser = async () => {
+    const res = await api.getCurrentUser();
+    if (res) {
+      setCurrentUser(res);
+    } else {
+      try {
+        await api.refreshToken();
+        const refreshUser = await api.getCurrentUser();
+        setCurrentUser(refreshUser.data);
+        navigate("/courses");
+      } catch (error) {
+        console.error();
+        logout();
+        navigate("/");
+      }
+    }
+  };
+
+  useEffect(() => {
+    getCurrentUser();
+  }, []);
+
+  const login = (_user) => {
+    setCurrentUser(_user);
+  };
+
   const isAuthenticated = () => {
     return currentUser !== null;
   };
@@ -42,6 +54,7 @@ export function AuthContextProvider({ children }) {
   const memo = useMemo(() => {
     return {
       currentUser,
+      getCurrentUser,
       login,
       logout,
       isAuthenticated,

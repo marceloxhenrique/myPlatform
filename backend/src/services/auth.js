@@ -64,24 +64,28 @@ const verifyPassword = async (req, res) => {
 };
 
 const verifyRefreshToken = (req, res) => {
-  const { refreshToken } = req.body;
   try {
-    const payload = jwt.verify(refreshToken, REFRESH_TOKEN_SECRET);
-    const newAccessToken = jwt.sign({ sub: payload.sub }, JWT_SECRET, {
-      expiresIn: JWT_TIMING,
-    });
-    const newRefreshToken = jwt.sign(
-      { sub: payload.sub },
-      REFRESH_TOKEN_SECRET,
-      {
-        expiresIn: JWT_REFRESH_TIMING,
-      }
-    );
+    const { refreshToken } = req.cookies;
+
+    if (!refreshToken) return res.sendStatus(403);
+
+    const match = jwt.verify(refreshToken, REFRESH_TOKEN_SECRET);
+    const newAccessToken = generateAccessToken(match.sub);
+    const newRefreshToken = generateRefreshToken(match.sub);
+
     res
-      .status(200)
-      .json({ accessToken: newAccessToken, refreshToken: newRefreshToken });
+      .cookie("accessToken", newAccessToken, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+      })
+      .cookie("refreshToken", newRefreshToken, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+      })
+      .send();
+    return undefined;
   } catch (error) {
-    res.status(401).json({ message: "Invalid refresh token " });
+    return res.sendStatus(403);
   }
 };
 
