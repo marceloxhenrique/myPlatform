@@ -30,7 +30,6 @@ export function AuthContextProvider({ children }) {
         await api.refreshToken();
         const refreshUser = await api.getCurrentUser();
         setCurrentUser(refreshUser.data);
-        navigate("/courses");
       } catch (error) {
         console.error();
         logout();

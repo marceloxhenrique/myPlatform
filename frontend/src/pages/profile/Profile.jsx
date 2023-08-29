@@ -6,7 +6,7 @@ import { api } from "../../services/api";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Profile() {
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, getCurrentUser } = useContext(AuthContext);
   const [showEditModal, setShowEditModal] = useState(false);
   const [filePath, setFilePath] = useState();
   const [userInfo, setUserInfo] = useState();
@@ -17,10 +17,14 @@ export default function Profile() {
   };
 
   const getInfo = async () => {
-    const res = await api.getUserInfo(currentUser.id);
-    setUserInfo(res);
-    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-    setFilePath(`${BACKEND_URL}/assets/images/${res.profilePicture}`);
+    try {
+      const res = await api.getUserInfo(currentUser.id);
+      setUserInfo(res);
+      const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+      setFilePath(`${BACKEND_URL}/assets/images/${res.profilePicture}`);
+    } catch (error) {
+      getCurrentUser();
+    }
   };
 
   const inputRef = useRef();
