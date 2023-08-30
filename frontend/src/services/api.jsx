@@ -139,7 +139,11 @@ export const api = {
       const res = await instance.get(`/currentuser`);
       return res.data;
     } catch (error) {
-      console.error(error);
+      if (error.response && error.response.status === 403) {
+        await api.refreshToken();
+        const res = await instance.get(`/currentuser`);
+        return res.data;
+      }
       return undefined;
     }
   },
