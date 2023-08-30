@@ -21,20 +21,24 @@ export function AuthContextProvider({ children }) {
     }
   };
 
+  const refreshToken = async () => {
+    try {
+      await api.refreshToken();
+      const refreshUser = await api.getCurrentUser();
+      setCurrentUser(refreshUser.data);
+    } catch (error) {
+      console.error();
+      logout();
+      navigate("/");
+    }
+  };
+
   const getCurrentUser = async () => {
     const res = await api.getCurrentUser();
     if (res) {
       setCurrentUser(res);
     } else {
-      try {
-        await api.refreshToken();
-        const refreshUser = await api.getCurrentUser();
-        setCurrentUser(refreshUser.data);
-      } catch (error) {
-        console.error();
-        logout();
-        navigate("/");
-      }
+      refreshToken();
     }
   };
 
@@ -52,6 +56,7 @@ export function AuthContextProvider({ children }) {
 
   const memo = useMemo(() => {
     return {
+      refreshToken,
       currentUser,
       getCurrentUser,
       login,
