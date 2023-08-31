@@ -55,11 +55,24 @@ export default function Profile() {
   };
 
   const handleEdit = () => {
-    setShowEditModal(true);
+    setShowEditModal(!showEditModal);
   };
 
-  const removeProfilePicture = () => {
+  const removeProfilePicture = async () => {
+    try {
+      const updateUserInfo = {
+        ...userInfo,
+        profilePicture: "avatar.jpeg",
+      };
+      setUserInfo(updateUserInfo);
+      await api.editUser(userInfo.id, updateUserInfo);
+      toast.success("Profile updated successfully");
+    } catch (error) {
+      console.error(error);
+      toast.error("Your information could not be changed");
+    }
     setShowEditModal(false);
+    getInfo();
   };
 
   const boxRef = useRef();
@@ -145,7 +158,7 @@ export default function Profile() {
         </div>
         <hr />
         <div className={styles.bottomSide}>
-          <h1>Another information</h1>
+          <h1>Other information</h1>
         </div>
       </section>
     </main>
