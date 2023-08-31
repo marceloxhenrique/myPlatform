@@ -58,7 +58,6 @@ export const api = {
   },
 
   registerCourse: async (coursedata) => {
-    // console.log(id)
     try {
       const res = await instance.post(`/course`, coursedata);
       return res.data;
