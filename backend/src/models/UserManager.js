@@ -5,6 +5,13 @@ class UserManager extends AbstractManager {
     super({ table: "user" });
   }
 
+  findUser(id) {
+    return this.database.query(
+      `select id, admin, firstname, lastname, email, profilePicture, aboutSection  from  ${this.table} where id = ?`,
+      [id]
+    );
+  }
+
   insert(user) {
     return this.database.query(
       `INSERT INTO ${this.table} (firstname, lastname, email, hashedPassword)
