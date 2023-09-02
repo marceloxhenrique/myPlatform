@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { BiChevronDown } from "react-icons/bi";
 import { toast } from "react-toastify";
 import styles from "./ComponentUpdateCourse.module.css";
 import { api } from "../../services/api";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function ComponentUpdateCourse() {
+  const [dropDownMenu, setDropDowMenu] = useState(false);
   const [courseData, setCourseData] = useState({
     id: "",
     title: "",
@@ -27,23 +29,11 @@ export default function ComponentUpdateCourse() {
         color: course.color,
         initials: course.initials,
       });
+      setDropDowMenu(false);
     }
   };
 
-  useEffect(() => {
-    const getCourses = async () => {
-      try {
-        const resCoursesAvailables = await api.getAllCourses();
-
-        setCoursesAvailable(resCoursesAvailables);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getCourses();
-  }, []);
-
-  const handleDataUpdate = async (id, data) => {
+  const handleCourseUpdate = async (id, data) => {
     try {
       await api.updateCourse(id, data);
       toast.success("Your course was successfully updated", {
@@ -57,8 +47,7 @@ export default function ComponentUpdateCourse() {
     }
   };
 
-  const handleDelete = async (id) => {
-    // console.log(id);
+  const handleDeleteCourse = async (id) => {
     try {
       await api.deleteCourse(id);
       toast.success("Your course was successfully delete", {
@@ -71,26 +60,68 @@ export default function ComponentUpdateCourse() {
       });
     }
   };
+
+  const getCourses = async () => {
+    try {
+      const resCoursesAvailables = await api.getAllCourses();
+      setCoursesAvailable(resCoursesAvailables);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleCourseSearch = (e) => {
+    setDropDowMenu(true);
+    if (e.target.value.length === 0) {
+      getCourses();
+    }
+    const check = coursesAvailable.filter((course) =>
+      course.title.toLowerCase().includes(e.target.value.toLowerCase())
+    );
+
+    setCoursesAvailable(check);
+  };
+
+  useEffect(() => {
+    getCourses();
+  }, []);
   return (
-    <div className={styles.containerUpdate}>
-      <div className={styles}>
-        <div className={styles.title}> Chose a course to update</div>
-        {coursesAvailable && (
-          <div className={styles.courseListe}>
-            <span>
-              {coursesAvailable.map((course) => (
-                <button
-                  type="button"
-                  key={course.id}
-                  onClick={() => handleUpdateData(course)}
-                >
-                  {course.title}
-                </button>
-              ))}
-            </span>
+    <main className={styles.updateContainer}>
+      {coursesAvailable && (
+        <section className={styles.courseListe}>
+          <div className={styles.searchBar}>
+            <input
+              type="text"
+              placeholder="Select a course..."
+              onClick={() => {
+                setDropDowMenu(!dropDownMenu);
+              }}
+              onChange={handleCourseSearch}
+            />
+            <p>
+              |<BiChevronDown />
+            </p>
           </div>
-        )}
-      </div>
+          {dropDownMenu && (
+            <div className={styles.coursesOptions}>
+              <ul>
+                {coursesAvailable.map((course) => (
+                  <li key={course.id}>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        handleUpdateData(course);
+                      }}
+                    >
+                      {course.title}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </section>
+      )}
       <section className={styles.updateBox}>
         <label htmlFor="title">Course Name</label>
         <input
@@ -131,18 +162,18 @@ export default function ComponentUpdateCourse() {
         <button
           className={styles.submiButton}
           type="button"
-          onClick={() => handleDataUpdate(courseData.id, courseData)}
+          onClick={() => handleCourseUpdate(courseData.id, courseData)}
         >
           Submit
         </button>
         <button
           className={styles.deleteButton}
           type="button"
-          onClick={() => handleDelete(courseData.id)}
+          onClick={() => handleDeleteCourse(courseData.id)}
         >
           Delete course
         </button>
       </section>
-    </div>
+    </main>
   );
 }
