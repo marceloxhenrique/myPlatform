@@ -5,7 +5,6 @@ import ComponentUpdateCourse from "../../components/ComponentsUpdateCourse/Compo
 export default function Update() {
   return (
     <div className={styles.containerUpdate}>
-      <h1>Update Course</h1>
       <ComponentUpdateCourse />
     </div>
   );
