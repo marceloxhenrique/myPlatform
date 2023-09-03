@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { BiChevronDown } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
+import { BiChevronDown, BiArrowBack } from "react-icons/bi";
 import { toast } from "react-toastify";
 import styles from "./ComponentUpdateCourse.module.css";
 import { api } from "../../services/api";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function ComponentUpdateCourse() {
+  const navigate = useNavigate();
   const [dropDownMenu, setDropDowMenu] = useState(false);
   const [courseData, setCourseData] = useState({
     id: "",
@@ -87,41 +89,49 @@ export default function ComponentUpdateCourse() {
   }, []);
   return (
     <main className={styles.updateContainer}>
-      {coursesAvailable && (
-        <section className={styles.courseListe}>
-          <div className={styles.searchBar}>
-            <input
-              type="text"
-              placeholder="Select a course..."
-              onClick={() => {
-                setDropDowMenu(!dropDownMenu);
-              }}
-              onChange={handleCourseSearch}
-            />
-            <p>
-              |<BiChevronDown />
-            </p>
+      <button
+        onClick={() => {
+          navigate(-1);
+        }}
+        type="button"
+        className={styles.backButton}
+      >
+        <BiArrowBack />
+      </button>
+      <h1>Update Course</h1>
+      <section className={styles.courseListe}>
+        <div className={styles.searchBar}>
+          <input
+            type="text"
+            placeholder="Select a course..."
+            onClick={() => {
+              setDropDowMenu(!dropDownMenu);
+            }}
+            onChange={handleCourseSearch}
+          />
+          <p>
+            |<BiChevronDown />
+          </p>
+        </div>
+        {dropDownMenu && (
+          <div className={styles.coursesOptions}>
+            <ul>
+              {coursesAvailable.map((course) => (
+                <li key={course.id}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      handleUpdateData(course);
+                    }}
+                  >
+                    {course.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
           </div>
-          {dropDownMenu && (
-            <div className={styles.coursesOptions}>
-              <ul>
-                {coursesAvailable.map((course) => (
-                  <li key={course.id}>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        handleUpdateData(course);
-                      }}
-                    >
-                      {course.title}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </section>
-      )}
+        )}
+      </section>
       <section className={styles.updateBox}>
         <label htmlFor="title">Course Name</label>
         <input
@@ -132,15 +142,6 @@ export default function ComponentUpdateCourse() {
           required
           value={courseData.title}
         />
-        <label htmlFor="description">Description</label>
-        <input
-          onChange={handleChange}
-          type="text"
-          name="description"
-          placeholder="Description"
-          required
-          value={courseData.description}
-        />
         <label htmlFor="color">Color</label>
         <input
           onChange={handleChange}
@@ -150,6 +151,7 @@ export default function ComponentUpdateCourse() {
           required
           value={courseData.color}
         />
+
         <label htmlFor="initials">Initials</label>
         <input
           onChange={handleChange}
@@ -158,6 +160,16 @@ export default function ComponentUpdateCourse() {
           placeholder="initials"
           required
           value={courseData.initials}
+        />
+        <label htmlFor="description">Description</label>
+        <textarea
+          className={styles.descriptionField}
+          onChange={handleChange}
+          type="text"
+          name="description"
+          placeholder="Description"
+          required
+          value={courseData.description}
         />
         <button
           className={styles.submiButton}

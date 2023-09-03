@@ -6,7 +6,7 @@
   align-items: center;
   margin-top: 5em;
   padding: 1em;
-  border-radius: 0.5em;
+  border-radius: 1.5em;
   background-color: var(--mainWhite);
   font-family: var(--body-fonts);
   transition: .3s;
@@ -63,7 +63,6 @@
 }
 
 .createCourseCard > section > .descriptionField  {
-  /* background-color: red; */
   padding: 0.6em .5em;
   margin: 0.2em 0em .5em 0em;
   font-size: 1.4em;
@@ -110,7 +109,6 @@
     margin-top: 0em;
   }
   .createCourseCard>section {
-    /* background-color: red; */
     padding: 0 1em;
   }
   .createCourseCard>section>input {
