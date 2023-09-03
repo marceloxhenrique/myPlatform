@@ -1,15 +1,41 @@
 .updateContainer {
   width: 100%;
-    height: 100%;
-    min-height: 88svh;
-    padding: 1em;
-    margin-top: 5em;
-    display: flex;
-    flex-direction: column;
-    border-radius: 1.5em;
-    transition: .3s;
-    background-color: var(--mainWhite);
-    box-shadow: var(--boxShadow);
+  min-height: 88svh;
+  height: 100%;
+  margin-top: 5em;
+  padding: 1em 2em;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.5em;
+  transition: .3s;
+  background-color: var(--mainWhite);
+  box-shadow: var(--boxShadow);
+  font-family: var(--body-fonts);
+}
+
+.backButton {
+  width: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-bottom: .4em;
+  font-size: 2.6em;
+  cursor: pointer;
+  border: 1px solid transparent;
+  color: var(--mainGreen);
+  background-color: transparent;
+  border-radius: 0.1em;
+  transition: .15s;
+}
+
+.backButton:hover {
+  scale: 1.15;
+}
+
+.updateContainer > h1 {
+  padding-bottom: 1em;
+  color: var(--mainGreen);
+  font-size: 1.5em;
 }
 
 .courseListe {
@@ -17,8 +43,7 @@
   flex-direction: column;
   font-size: 1.5em;
   justify-content: center;
-  margin-bottom: 1em;
-  
+  margin-bottom: .6em;
 }
 
 .searchBar {
@@ -27,7 +52,6 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-bottom: .4em;
   border: 1px solid gray;
   border-radius: .2em;
   position: relative;
@@ -36,36 +60,45 @@
 .searchBar > input {
   padding: .4em;
   border: none;
-  font-size: 1em;
+  font-size: .8em;
   position: relative;
   top: 0;
   z-index: 2;
   background-color: transparent;
 }
+
 .searchBar > p{
-  position: absolute;
   display: flex;
+  position: absolute;
+  align-items: center;
   z-index: 1;
+  padding: .2em;
 }
+
 .coursesOptions {
   position: relative;
 }
+
 .coursesOptions > ul {
+  display: flex;
+  position: absolute;
+  top: .2em;
+  flex-direction: column;
   width: 100%;
   max-width: 20em;
-  display: flex;
-  flex-direction: column;
+  max-height: 5em;
   border: 1px solid gray;
   border-radius: .2em;
   overflow: hidden;
-  position: absolute;
   background-color: white;
+  overflow-y: scroll;
 }
 
 .coursesOptions > ul > li> button {
   font-size: .8em;
   width: 100%;
-  padding: .2em;
+  height: 100%;
+  padding: .4em;
   padding-left: .8em;
   text-align: left;
   list-style-type: none;
@@ -73,7 +106,7 @@
   border: none;
 }
 
-.coursesOptions > ul > li>  button:hover{
+.coursesOptions > ul > li> button:hover{
   background-color: #DDEBFF;
 }
 
@@ -81,57 +114,113 @@
   outline: none;
   width: 100%;
   border: none;
-
 }
-
 
 .updateBox {
   display: flex;
   flex-direction: column;
-  padding: 0.5em 1em;
+  padding: 0.8em 0em;
   border-radius: 0.3em;
-  background-color: rgba(0, 0, 0, 0.554);
 }
 
-.updateBox>label {
-  font-size: 1.5em;
+.updateBox > label {
+  width: 100%;
+  max-width: 20em;
+  font-size: 1.2em;
+  font-weight:bolder;
 }
 
-.updateBox>input {
-  height: 2em;
-  margin: 1em 0em;
-  font-size: 1.3em;
-  padding-left: 1em;
+.updateBox > input {
+  padding: 0.6em .5em;
+  margin: 0.2em 0em 1.4em 0em;
+  font-size: 1em;
+  border-radius: 0.2em;
+  border: none;
+  outline-color: #2E81F7;
+  transition: .3s;
+  border: 1px solid var(--mainGreen);
+  background-color: rgb(241, 237, 237);
+  width: 100%;
+  max-width: 20em;
+  font-family: var(--body-fonts);
 }
 
 .submiButton {
-  height: 2em;
-  margin: 1em 0em;
-  font-size: 1.3em;
-  padding-left: 1em;
+  padding: 0.5em;
+  font-size: 1.2em;
+  border-radius: 0.2em;
   border: none;
-  color: var(--secondaryWhite);
-  background-color: var(--primaryGreen);
-  border-radius: 0.3em;
   cursor: pointer;
+  color: white;
+  background-color: #238636;
+  margin-top: 1em;
+  transition: .3s;
+  width: 100%;
+  max-width: 16.6em;
+}
+
+.submiButton:hover {
+  background-color: #26a641;
 }
 
 .deleteButton {
-  height: 2em;
-  margin: 1em 0em;
-  font-size: 1.3em;
-  padding-left: 1em;
+  padding: 0.5em;
+  font-size: 1.2em;
+  border-radius: 0.2em;
   border: none;
-  color: var(--secondaryWhite);
-  background-color: red;
-  border-radius: 0.3em;
   cursor: pointer;
+  color: white;
+  background-color: #c62a22;
+  margin-top: 1em;
+  transition: .3s;
+  width: 100%;
+  max-width: 16.6em;
+}
+
+.deleteButton:hover {
+  background-color: #e03128;
+}
+
+.descriptionField {
+  padding: 0.6em .5em;
+  margin: 0.2em 0em .5em 0em;
+  font-size: 1.2em;
+  border-radius: 0.2em;
+  border: none;
+  outline-color: #2E81F7;
+  transition: .3s;
+  border: 1px solid var(--mainGreen);
+  background-color: rgb(241, 237, 237);
+  height: 9em;
+  resize: none;
+  width: 100%;
+  max-width: 28em;
+  font-family: var(--body-fonts);
 }
 
 @media (min-width: 769px) {
   .updateContainer {
+    min-height: calc(100vh - 2em);
     margin-top: 0em;
-    padding: 1em;
   }
 
+  .updateContainer>h1 {
+    font-size: 2em;
+  }
+  .updateBox>input {
+    font-size: 1.2em;
+  }
+
+  .searchBar>input {
+    font-size: 1em;
+  }
+
+  .updateBox>label {
+    font-size: 1.4em;
+  }
+
+  .submiButton,
+  .deleteButton {
+    max-width: 20em;
+  }
 }

@@ -66,6 +66,7 @@ export default function CardcreateCourse() {
               >
                 <BiArrowBack />
               </button>
+              <h1>Create Course</h1>
               <h2>Name</h2>
               <input
                 type="text"
