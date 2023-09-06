@@ -1,180 +1,215 @@
 .createLessonCard {
-  min-height: 70dvh;
-  width: 80dvw;
+  width: 100%;
+  min-height: 88svh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 1em 0em;
-  padding: 2em;
-  border-radius: 0.5em;
-  background-color: rgba(0, 0, 0, 0.554);
-  font-family: var(--fontFamily);
-
+  margin-top: 5em;
+  padding: 1em;
+  border-radius: 1.5em;
+  background-color: var(--mainWhite);
+  font-family: var(--body-fonts);
+  transition: .3s;
+  box-shadow: var(--boxShadow);
 }
 
-.required {
-  color: red;
-
-}
-
-.createLeesonCard {
+.backButton {
+  width: 1em;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-
-}
-
-.inputInfo {
-  text-align: center;
-  width: 80%;
-  margin: 1em;
-  border-radius: 0.5em;
-}
-
-.inputInfoName {
-  text-align: center;
-  width: 80%;
-  border-radius: 0.5em;
-}
-
-.inputInfoName>input {
-  width: 100%;
-  height: 2em;
-  border: none;
-  padding: 1em;
-  margin: 1em 0em;
-  font-size: 1.5em;
-  border-radius: 0.3em;
-
-}
-
-.inputInfoName>h2 {
-  text-align: left;
-
-}
-
-.inputInfo>input {
-  width: 100%;
-  height: 1.5em;
-  border: none;
-  padding: 1em;
-  margin: 1em 0em 1em 0em;
-  font-size: 1.5em;
-  border-radius: 0.3em;
-
-}
-
-.inputInfo>h2,
-.video > h2 {
-  text-align: left;
-
-}
-
-
-.buttonRegister {
-  padding: 1em 3em;
-  font-size: 1.4em;
+  justify-content: left;
+  margin-bottom: .4em;
+  font-size: 2.6em;
   cursor: pointer;
-  border-radius: 0.4em;
-  border: none;
-  font-weight: bolder;
+  border: 1px solid transparent;
+  color: var(--mainGreen);
+  background-color: transparent;
+  border-radius: 0.1em;
+  transition: .15s;
 }
 
-.buttonRegister:hover {
-  background-color: var(--primaryGreen);
-  color: var(--secondaryWhite);
+.backButton:hover {
+  scale: 1.15;
 }
 
-
-.video{
-  text-align: center;
-  width: 80%;
-  margin: 1em;
-  border-radius: 0.5em;
-  
-}
-
-.video > input {
-    width: 100%;
-    height: 2em;
-    border: none;
-    padding: 2em 1em;
-    margin: 1em 0em;
-    font-size: 1.5em;
-    border-radius: 0.3em;
-    color: var(--primaryGreen);
-    background-color: var(--secondaryWhite);
-    /* background-color: red; */
-}
-
-.containerUpdate {
-  width: 100vw;
-  max-width: 100%;
-  min-height: 92dvh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: var(--primaryGreen);
-  font-family: var(--fontFamily);
-  color: aliceblue;
-}
-
-.title {
-  color: var(--secondaryWhite);
-  font-size: 1.2em;
-  margin-top: 1em;
-  padding: 0.5em;
-  /* border-radius: 0.5em 0.5em 0em 0em; */
+.createLessonCard > h1 {
+  color:  var(--mainGreen);
+  margin-bottom: 1em;
 }
 
 .courseListe {
-  width: 70%;
-  height: 10em;
   display: flex;
-  font-size: 1.5em;
-  text-align: center;
-  background-color: var(--backgroundOpacity);
-  overflow-y: scroll;
-  border-radius: 0em 0em 0.5em 0.5em;
-  border-bottom: 0.2em solid black;
-  margin-bottom: 1em;
-
+  max-width: 20em;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: .6em;
+  border: 1px solid gray;
+  height: 2.4em;
+  margin: 0.2em 0em .5em 0em;
+  font-size: 1em;
+  border-radius: 0.2em;
 }
 
-.courseListe>span {
+.searchBar {
+  width: 100%;
+  max-width: 20em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-radius: .2em;
+  position: relative;
+  padding-left: .2em;
+  font-size: 1.4em;
+}
+
+.searchBar>input {
+  padding: .4em;
+  border: none;
+  font-size: .8em;
+  position: relative;
+  top: 0;
+  z-index: 2;
+  background-color: transparent;
+}
+
+.searchBar>p {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  z-index: 1;
+  padding: .2em;
+}
+
+.coursesOptions {
+  position: relative;
+}
+
+.coursesOptions>ul {
+  display: flex;
+  position: absolute;
+  top: .6em;
+  flex-direction: column;
+  width: 100%;
+  max-width: 20em;
+  max-height: 5em;
+  border: 1px solid gray;
+  border-radius: .2em;
+  overflow: hidden;
+  background-color: white;
+  overflow-y: scroll;
+}
+
+.coursesOptions>ul>li>button {
+  font-size: .8em;
+  width: 100%;
+  height: 100%;
+  padding: .4em;
+  padding-left: .8em;
+  text-align: left;
+  list-style-type: none;
+  background-color: transparent;
+  border: none;
+}
+
+.coursesOptions>ul>li>button:hover {
+  background-color: #DDEBFF;
+}
+
+.searchBar>input {
+  outline: none;
+  width: 100%;
+  border: none;
+}
+
+.createLessonCard > form {
   display: flex;
   flex-direction: column;
   width: 100%;
-
-
 }
 
-.title {
-  color: var(--secondaryWhite);
-  font-size: 1.2em;
-  margin-top: 1em;
-  padding: 0.5em;
-  background-color: rgba(0, 0, 0, 0.554);
-  text-align: center;
-  border-radius: 0.5em 0.5em 0em 0em;
-}
-
-.courseListe>span>button {
-  margin: 1em;
-  padding: 0.5em;
-  background-color: var(--secondaryWhite);
-  border-radius: 0.3em;
-  cursor: pointer;
-  color: black;
+.createLessonCard > form > input {
+  padding: 0.6em .5em;
+  margin: 0.2em 0em .5em 0em;
+  font-size: 1em;
+  border-radius: 0.2em;
   border: none;
-  font-size: 0.8em;
-  font-weight: bold;
-
-
+  outline-color: #2E81F7;
+  transition: .3s;
+  border: 1px solid var(--mainGreen);
+  background-color: rgb(241, 237, 237);
+  width: 100%;
+  max-width: 20em;
 }
 
-.courseListe>span>button:hover {
-  background-color: var(--primaryGreen);
-  color: var(--secondaryWhite);
+.createLessonCard>form> h2 {
+  font-size: 1.2em;
+  margin-top: .8em;
+}
+
+.videoField {
+  padding: 0.6em .5em;
+  margin: 0.2em 0em .5em 0em;
+  font-size: 1em;
+  border-radius: 0.2em;
+  border: none;
+  outline-color: #2E81F7;
+  transition: .3s;
+  border: 1px solid var(--mainGreen);
+  background-color: rgb(241, 237, 237);
+  width: 100%;
+  max-width: 20em;
+}
+
+.videoField > input {
+  display: none;
+}
+
+.descriptionField {
+  padding: 0.6em .5em;
+  margin: 0.2em 0em .5em 0em;
+  font-size: 1.4em;
+  border-radius: 0.2em;
+  border: none;
+  outline-color: #2E81F7;
+  transition: .3s;
+  border: 1px solid var(--mainGreen);
+  background-color: rgb(241, 237, 237);
+  height: 9em;
+  resize: none;
+  width: 100%;
+  max-width: 28em;
+}
+
+.buttonRegister {
+  padding: 0.5em;
+  font-size: 1.2em;
+  border-radius: 0.2em;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background-color: #238636;
+  margin-top: 1em;
+  transition: .3s;
+  width: 100%;
+  max-width: 16.6em;
+}
+
+@media (min-width: 769px) {
+  .createLessonCard {
+    min-height: calc(100vh - 2em);
+    margin-top: 0em;
+    padding: 2em;
+  }
+
+    .createLessonCard>form>input, .videoField, .courseListe {
+    font-size: 1.2em;
+  }
+
+
+  .createLessonCard>form>h2 {
+    font-size: 1.4em;
+  }
+
+  .buttonRegister {
+    max-width: 20em;
+  } 
 }
