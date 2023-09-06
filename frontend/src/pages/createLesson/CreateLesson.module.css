@@ -1,13 +1,9 @@
 .containerCreatelesson {
-  min-height: 92dvh;
+  min-height: 100svh;
   width: 100vw;
   max-width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 2em;
-  background-color: var(--primaryGreen);
-  font-family: var(--fontFamily);
-  color: var(--secondaryWhite);
+  padding: 1em;
+  background-color: var(--backgroundWhite);
 }

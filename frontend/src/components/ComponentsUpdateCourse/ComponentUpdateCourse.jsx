@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 export default function ComponentUpdateCourse() {
   const navigate = useNavigate();
   const [dropDownMenu, setDropDowMenu] = useState(false);
+  const [coursesAvailable, setCoursesAvailable] = useState();
   const [courseData, setCourseData] = useState({
     id: "",
     title: "",
@@ -16,7 +17,6 @@ export default function ComponentUpdateCourse() {
     color: "",
     initials: "",
   });
-  const [coursesAvailable, setCoursesAvailable] = useState();
 
   const handleChange = (e) => {
     setCourseData({ ...courseData, [e.target.name]: e.target.value });
