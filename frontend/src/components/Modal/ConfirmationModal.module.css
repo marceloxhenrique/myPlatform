@@ -1,0 +1,51 @@
+.dialogBox {
+  width: 100%;
+  max-width: 100%;
+  min-height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  backdrop-filter: blur(1em);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+
+.dialogBox > section {
+  width: 90vw;
+  max-width: 40em;
+  min-height: 10em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4em;
+  border-radius: .5em;
+  text-align: center;
+  font-family: var(--body-fonts);
+  background-color: rgb(173, 173, 173);
+}
+
+.dialogBox>section > p {
+  font-size: 1.5em;
+}
+
+.button {
+  text-align: center;
+}
+
+.button > button {
+  margin: 2em 1em;
+  padding: .6em 2em;
+  font-size: 1em;
+  border-radius: .4em;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--boxShadow);
+}
+
+.button > button:hover {
+  background-color: aliceblue;
+}
