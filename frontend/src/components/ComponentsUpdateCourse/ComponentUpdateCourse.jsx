@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import styles from "./ComponentUpdateCourse.module.css";
 import { api } from "../../services/api";
 import "react-toastify/dist/ReactToastify.css";
-import ModalConfirmation from "../Modal/ModalConfirmation";
+import ConfirmationModal from "../Modal/ConfirmationModal";
 
 export default function ComponentUpdateCourse() {
   const navigate = useNavigate();
@@ -202,10 +202,10 @@ export default function ComponentUpdateCourse() {
         </section>
       </main>
       {showModalConfirmation && (
-        <ModalConfirmation
+        <ConfirmationModal
           courseId={courseData.id}
           onClose={handleCloseModal}
-          course="course"
+          courseName="course"
         />
       )}
     </>
