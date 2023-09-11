@@ -71,7 +71,19 @@ export default function Lesson() {
               </button>
             </h1>
             <div className={styles.playerContainer}>
-              <ReactPlayer url={filePath} controls width="100%" height="100%" />
+              <ReactPlayer
+                url={filePath}
+                controls
+                width="100%"
+                height="100%"
+                config={{
+                  file: {
+                    attributes: {
+                      controlsList: "nodownload",
+                    },
+                  },
+                }}
+              />
             </div>
             <p>{lesson.description}</p>
           </aside>
