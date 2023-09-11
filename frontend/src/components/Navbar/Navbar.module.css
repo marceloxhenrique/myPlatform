@@ -7,7 +7,7 @@
   align-items: center;
   padding: 0 1em;
   background-color: var(--mainWhite);
-  z-index: 1;
+  z-index: 3;
   position: fixed;
 }
 
