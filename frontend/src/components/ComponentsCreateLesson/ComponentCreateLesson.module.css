@@ -31,8 +31,8 @@
   scale: 1.15;
 }
 
-.createLessonCard > h1 {
-  color:  var(--mainGreen);
+.createLessonCard>h1 {
+  color: var(--mainGreen);
   margin-bottom: 1em;
 }
 
@@ -120,13 +120,13 @@
   border: none;
 }
 
-.createLessonCard > form {
+.createLessonCard>form {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.createLessonCard > form > input {
+.createLessonCard>form>input {
   padding: 0.6em .5em;
   margin: 0.2em 0em .5em 0em;
   font-size: 1em;
@@ -140,7 +140,7 @@
   max-width: 20em;
 }
 
-.createLessonCard>form> h2 {
+.createLessonCard>form>h2 {
   font-size: 1.2em;
   margin-top: .8em;
 }
@@ -159,7 +159,7 @@
   max-width: 20em;
 }
 
-.videoField > input {
+.videoField>input {
   display: none;
 }
 
@@ -179,6 +179,13 @@
   max-width: 28em;
 }
 
+.quill {
+  height: 10em;
+  max-width: 50em;
+  /* background-color: lightgray; */
+  margin-top: .5em;
+}
+
 .buttonRegister {
   padding: 0.5em;
   font-size: 1.2em;
@@ -187,7 +194,7 @@
   cursor: pointer;
   color: white;
   background-color: #238636;
-  margin-top: 1em;
+  margin-top: 6em;
   transition: .3s;
   width: 100%;
   max-width: 16.6em;
@@ -200,7 +207,9 @@
     padding: 2em;
   }
 
-    .createLessonCard>form>input, .videoField, .courseListe {
+  .createLessonCard>form>input,
+  .videoField,
+  .courseListe {
     font-size: 1.2em;
   }
 
@@ -211,5 +220,5 @@
 
   .buttonRegister {
     max-width: 20em;
-  } 
+  }
 }
