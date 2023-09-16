@@ -2,26 +2,29 @@ import React, { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { BiChevronDown, BiArrowBack } from "react-icons/bi";
 import { toast } from "react-toastify";
+import ReactQuill from "react-quill";
 import styles from "./ComponentCreateLesson.module.css";
 import { api } from "../../services/api";
 import "react-toastify/dist/ReactToastify.css";
+import "react-quill/dist/quill.snow.css";
 
 export default function CardcreateCourse() {
   const navigate = useNavigate();
   const [coursesAvailable, setCoursesAvailable] = useState();
   const [dropDownMenu, setDropDowMenu] = useState(false);
-  // const [courseName, setCourseName] = useState("");
+  const [description, setDescription] = useState("");
 
   const [info, setInfo] = useState({
     lesson_name: "",
     duration: "",
-    description: "",
+    // description: "",
     course_id: "",
     video: "",
   });
   // { resetForm }
   const handleChanges = (e) => {
-    setInfo((prevInfo) => ({ ...prevInfo, [e.target.name]: e.target.value }));
+    // setInfo((prevInfo) => ({ ...prevInfo, [e.target.name]: e.target.value }));
+    setInfo(() => ({ ...info, [e.target.name]: e.target.value }));
     setDropDowMenu(false);
   };
 
@@ -31,7 +34,7 @@ export default function CardcreateCourse() {
     const formData = new FormData();
     formData.append("lesson_name", info.lesson_name);
     formData.append("duration", info.duration);
-    formData.append("description", info.description);
+    formData.append("description", description);
     formData.append("course_id", info.course_id);
     formData.append("video", inputRef.current.files[0]);
     try {
@@ -134,12 +137,12 @@ export default function CardcreateCourse() {
           onChange={handleChanges}
         />
         <h2>Description</h2>
-        <textarea
-          className={styles.descriptionField}
-          type="text"
-          name="description"
-          value={info.description}
-          onChange={handleChanges}
+        <ReactQuill
+          theme="snow"
+          value={description}
+          onChange={setDescription}
+          className={styles.quill}
+          // style={{ width: "500px", height: "600px" }}
         />
         <button className={styles.buttonRegister} type="submit">
           Submit

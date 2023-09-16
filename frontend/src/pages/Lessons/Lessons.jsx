@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { BiSolidCheckCircle, BiChevronLeft, BiArrowBack } from "react-icons/bi";
 import { useParams, NavLink, useNavigate } from "react-router-dom";
 import ReactPlayer from "react-player";
+import parse from "html-react-parser";
 import styles from "./Lessons.module.css";
 import { api } from "../../services/api";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -85,7 +86,9 @@ export default function Lesson() {
                 }}
               />
             </div>
-            <p>{lesson.description}</p>
+            <div className={styles.description}>
+              {parse(`${lesson.description}`)}
+            </div>
           </aside>
           {modalLessons && (
             <div className={styles.lessonsList} id={styles.nav}>
