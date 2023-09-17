@@ -1,6 +1,7 @@
 .main {
   height: 100%;
 }
+
 .cardCountainer {
   width: 100%;
   min-width: 15em;
@@ -24,7 +25,7 @@
   margin-bottom: 1em;
 }
 
-.topSide > p {
+.topSide>p {
   font-size: 1.4em;
   font-weight: 400;
 }
@@ -45,16 +46,20 @@
   text-align: right;
 }
 
-.bottomSide > p {
+.description {
+  display: flex;
+  flex-direction: row;
   text-align: left;
   margin: 1em 0em;
+  display: inline-block;
 }
+
 .watchLessonButton {
   height: 1.8em;
 }
 
-.watchLessonButton > a {
-  
+.watchLessonButton>a {
+
   padding: .4em 1em;
   font-size: 1em;
   font-weight: 500;
@@ -66,14 +71,15 @@
   text-decoration: none;
   margin-bottom: 4em;
 }
-.watchLessonButton > a:hover {
+
+.watchLessonButton>a:hover {
   background-color: var(--secondaryGreen);
 }
 
 .watchLessonButton:hover {
   scale: 1.05;
   margin: 0em .5em;
-  
+
 }
 
 .bottomBar {
