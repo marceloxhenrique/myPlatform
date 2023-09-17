@@ -52,6 +52,7 @@ export default function CardcreateCourse() {
       course_id: "",
       video: "",
     });
+    setDescription("");
   };
 
   const getCourses = async () => {
@@ -142,7 +143,6 @@ export default function CardcreateCourse() {
           value={description}
           onChange={setDescription}
           className={styles.quill}
-          // style={{ width: "500px", height: "600px" }}
         />
         <button className={styles.buttonRegister} type="submit">
           Submit

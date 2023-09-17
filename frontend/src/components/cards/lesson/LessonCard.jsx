@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { BiSolidCheckCircle } from "react-icons/bi";
+import parse from "html-react-parser";
 import styles from "./LessonCard.module.css";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { api } from "../../../services/api";
@@ -34,7 +35,9 @@ export default function LessonCard({ lesson, color }) {
             <p>{lesson.lesson_name}</p>
           </div>
           <div className={styles.bottomSide}>
-            <p>{lesson.description.slice(0, 45)}...</p>
+            <div className={styles.description}>
+              {parse(lesson.description.slice(0, 45))}
+            </div>
             <span className={styles.watchLessonButton}>
               <Link to={`lesson/${lesson.id}`}>Watch</Link>
             </span>
