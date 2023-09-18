@@ -7,7 +7,7 @@
   height: 100dvh;
   font-family: var(--fontFamily);
 
-  background-image: var(--gradient) ;
+  background-image: var(--gradient);
 }
 
 .leftSide {
@@ -26,6 +26,7 @@
   opacity: 0.9;
   background-color: var(--mainWhite);
 }
+
 .showFirstPage {
   display: flex;
   flex-direction: column;
@@ -36,9 +37,11 @@
   height: 100%;
 }
 
-.showFirstPage > h1 {
+.showFirstPage>h1 {
   font-size: 3em;
-  
+  font-family: var(--body-fonts);
+  color: var(--mainGreen);
+
 }
 
 .firstPagebutton {
@@ -59,6 +62,7 @@
   background-color: #216E5A;
 
 }
+
 .buttonGoToSignUp {
   border: none;
   background-color: var(--mainWhite);
